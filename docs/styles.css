@@ -23,7 +23,10 @@
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px; /* sticky-nav clearance for anchor jumps */
+}
 
 body {
   margin: 0;
@@ -39,6 +42,53 @@ body {
   max-width: 1180px;
   margin: 0 auto;
   padding: 0 24px;
+}
+
+/* STICKY TOP NAV */
+.topnav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: saturate(180%) blur(10px);
+  -webkit-backdrop-filter: saturate(180%) blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  height: 56px;
+}
+.nav-brand {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  flex-shrink: 0;
+}
+.nav-brand:hover { color: var(--accent); }
+.nav-links {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.nav-links a {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.nav-links a:hover {
+  color: var(--text);
+  background: var(--gray-bg);
 }
 
 /* HEADER */
@@ -453,4 +503,10 @@ footer .repo-link:hover { border-color: var(--text); text-decoration: none; }
   thead th:nth-child(2), tbody td:nth-child(2) { display: none; }
   header h1 { font-size: 24px; }
   header .subtitle { font-size: 15px; }
+
+  /* Mobile nav: drop the brand, keep links compact */
+  .nav-brand { display: none; }
+  .nav-inner { justify-content: center; height: 52px; }
+  .nav-links a { padding: 5px 8px; font-size: 12px; }
+  html { scroll-padding-top: 60px; }
 }

@@ -264,7 +264,21 @@ def render():
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header>
+
+<nav class="topnav">
+  <div class="container nav-inner">
+    <a href="#top" class="nav-brand">PM Pricing</a>
+    <div class="nav-links">
+      <a href="#scorecard">Scorecard</a>
+      <a href="#recent-changes">Recent Changes</a>
+      <a href="#hall-of-shame">Hall of Shame</a>
+      <a href="#all-vendors">All Vendors</a>
+      <a href="#methodology">How It Works</a>
+    </div>
+  </div>
+</nav>
+
+<header id="top">
   <div class="container">
     <h1>PM Software Pricing Tracker</h1>
     <p class="subtitle">A weekly snapshot of pricing across the software residential property managers actually use. We publish every change so PMs can make informed buying decisions — even when vendors would rather you call sales.</p>
@@ -283,7 +297,7 @@ def render():
 
 <main class="container">
 
-  <div class="scorecard">
+  <div class="scorecard" id="scorecard">
     <div class="stat public">
       <div class="number">{public_full}</div>
       <div class="label">Publish full pricing</div>
@@ -342,7 +356,7 @@ def render():
 
 <footer>
   <div class="container">
-    <h3>How this works</h3>
+    <h3 id="methodology">How this works</h3>
     <p>Every Monday, an automated job visits each public pricing page, snapshots it, and compares it to the previous week. Any change — a new tier, a price increase, a removed plan — is committed to this repo. The full pricing history lives in the git log and in each vendor's <code>price_history</code> record.</p>
     <p>For vendors with gated pricing, we monitor Reddit (r/PropertyManagement, r/realestateinvesting, r/Landlord, r/RealEstate) for operator-reported numbers, and pull pricing context from AppFolio's quarterly earnings calls (they're publicly traded on NASDAQ as APPF).</p>
     <p><strong>Classification framework:</strong> {esc(meta.get("classification_framework", ""))}</p>

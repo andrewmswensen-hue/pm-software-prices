@@ -10,9 +10,9 @@
 
 ## 📊 Transparency Scorecard
 
-- ✅ **15** vendors publish full pricing
+- ✅ **18** vendors publish full pricing
 - 🟡 **4** publish partial pricing ("starts at" / model only)
-- 🔒 **10** hide pricing entirely — see Hall of Shame below
+- 🔒 **7** hide pricing entirely — see Hall of Shame below
 - ⚙️ **2** publish pricing but block automated tracking (verified manually)
 
 ---
@@ -24,7 +24,7 @@ These vendors expect property managers to sit through a sales call before learni
 ### AppFolio
 *Custom per-portfolio (per-unit with minimums)*
 
-> Names three tiers. Won't tell you what any of them cost. AppFolio is publicly traded (NASDAQ: APPF) — they disclose pricing dynamics in earnings calls but not on their pricing page.
+> Names three tiers (Core / Plus / Max), shows zero dollar amounts. AppFolio is publicly traded — they disclose pricing dynamics in quarterly earnings calls, just not on their pricing page.
 
 **What we hear from operators:** Operator reports suggest ~$1.40/unit floor, $250/mo minimum, plus per-transaction fees. Not vendor-confirmed.
 
@@ -33,21 +33,14 @@ These vendors expect property managers to sit through a sales call before learni
 ### Second Nature
 *Success-based; resident pays $20–$80/mo*
 
-> Residents pay $20–$80/mo, but the actual PM-facing margin? You'll need a demo for that.
+> Residents are told they'll pay $20–$80/mo. What the PM actually earns or pays? Not disclosed. The whole margin is invisible.
 
 [Visit the (un)pricing page →](https://www.secondnature.com/pricing)
-
-### Aptly
-*Custom per-portfolio*
-
-> No tiers, no prices, no hints. Aptly won't even name their plans publicly. That's a choice.
-
-[Visit the (un)pricing page →](https://www.getaptly.com/pricing)
 
 ### Apartments.com (for PMs)
 *Tiered advertising / per-property, negotiated by market*
 
-> Three tier names. Zero dollar amounts. Whatever you pay, the place next door probably pays less.
+> Three tier names — Basic, Pro, Enterprise. Zero dollar amounts for any of them. Whatever you pay for advertising, the property next door probably pays less.
 
 **What we hear from operators:** Industry reports cite ~$200–$400/mo for larger complexes — vendor does not confirm.
 
@@ -56,14 +49,14 @@ These vendors expect property managers to sit through a sales call before learni
 ### PropertyManagement.com
 *Freemium — free for owners, optional paid upgrade for PMs*
 
-> Says it's 'zero pay-to-play' for rankings — but won't say what the optional PM upgrade costs.
+> Branded as 'zero pay-to-play' for rankings — but won't say what the optional PM profile upgrade actually costs.
 
 [Visit the (un)pricing page →](https://www.propertymanagement.com/)
 
 ### Haven
 *Per-door + monthly minimum*
 
-> An AI company that won't tell you what it costs. Demo-led only.
+> An AI company building tools for the PM industry — and they won't even publish what their tools cost. Demo-led pricing only.
 
 **What we hear from operators:** ~$499/mo entry, $1.50–$5/door (per industry sources).
 
@@ -72,32 +65,16 @@ These vendors expect property managers to sit through a sales call before learni
 ### EliseAI
 *Custom enterprise*
 
-> EliseAI doesn't have a pricing page at all. Not 'gated' — they didn't even bother to make one.
+> Not even a pricing page exists. /pricing returns 404. They didn't bother gating it — they didn't bother making one.
 
 [Visit the (un)pricing page →](https://eliseai.com/)
 
 ### APM Help
 *Custom — initial fee based on book condition, ongoing per units*
 
-> 60+ pricing models. Zero of them on the website.
+> They publicly market '60+ pricing models' for bookkeeping. None of those 60+ models appear on the website. Customization is fine; total opacity is not.
 
 [Visit the (un)pricing page →](https://www.apmhelp.com/services)
-
-### All Property Management
-*Pay-per-lead, no monthly fees, no contracts*
-
-> A Buildium company. Buildium publishes pricing. This sibling doesn't.
-
-**What we hear from operators:** $30–$300 per lead, ~$60 average (per industry sources).
-
-[Visit the (un)pricing page →](https://www.allpropertymanagement.com/about/join-our-network/)
-
-### EZ Repair Hotline
-*Custom (based on call volume / portfolio)*
-
-> Their website is on a Wix subdomain (michaelfairbanks0.wixsite.com). Pricing isn't on it.
-
-[Visit the (un)pricing page →](https://michaelfairbanks0.wixsite.com/mysite-3)
 
 ---
 
@@ -127,11 +104,13 @@ These vendors expect property managers to sit through a sales call before learni
 | Vendor | Status | Tiers |
 |---|---|---|
 | [Property Meld](https://propertymeld.com/pricing/) | ✅ Public | Core: $1.60/unit<br>**Ops**: $2.00/unit<br>MAX On-Call (add-on): $1.50/unit |
+| [EZ Repair Hotline](https://michaelfairbanks0.wixsite.com/mysite-3) | 🟡 Partial | Listed price: starts at $1.49/mo |
 
 <details>
-<summary>Notes (1)</summary>
+<summary>Notes (2)</summary>
 
 - **Property Meld** — $160/mo minimum. Recommends 100+ doors. Enterprise (50,000+ units) is custom.
+- **EZ Repair Hotline** — Price ($1.49/mo) shown as an image on a Wix subdomain — but the page never says whether that's per property, per unit, per call, or a flat fee. Confirm the unit basis before signing.
 
 </details>
 
@@ -141,14 +120,14 @@ These vendors expect property managers to sit through a sales call before learni
 |---|---|---|
 | [ShowMojo](https://hello.showmojo.com/pricing/) | ✅ Public | Pro (unit-based): $1.30/unit<br>**Ultra (unit-based)**: $2.70/unit<br>Pro (listing-based): $50/listing<br>Ultra (listing-based): $110/listing |
 | [Tenant Turner](https://tenantturner.com/pricing) | ✅ Public | Pro: $1.30/unit ($65 min)<br>**Ultra**: $2.70/unit ($135 min) |
-| [RentEngine](https://www.rentengine.io/pricing) | 🟡 Partial | Standard: $45/listing ($250/mo min)<br>Custom (2,000+ doors): Contact sales |
+| [RentEngine](https://www.rentengine.io/pricing) | ✅ Public | Standard: $45/listing ($250/mo min)<br>Custom (2,000+ doors): Contact sales |
 
 <details>
 <summary>Notes (3)</summary>
 
 - **ShowMojo** — Multi-family minimum ~2,000 doors for the 70¢/door tier. MojoBox lockbox $64 one-time + $3.50/mo. Live Answer add-on from $11/week/listing.
 - **Tenant Turner** — $19 one-time carrier registration. Lockboxes/locks fully priced (SerosBox $59+$3.50/mo, SentriLock $175+$5/mo). Messaging add-on $25/mo for 500 + 3¢ after.
-- **RentEngine** — One-time onboarding fee disclosed but amount not visible.
+- **RentEngine** — Standard tier is fully priced ($45/listing + $250/mo min). One-time onboarding fee amount not visible. Custom tier for 2,000+ doors is sales-quoted (standard for enterprise tier).
 
 </details>
 
@@ -158,12 +137,14 @@ These vendors expect property managers to sit through a sales call before learni
 |---|---|---|
 | [Zillow Rental Manager](https://www.zillow.com/rental-manager/post-a-listing/) | 🚫 Manual | Basic Listing: Free<br>Premium Listing: $29.99 / 90 days |
 | [PMW (Property Manager Websites)](https://www.propertymanagerwebsites.com/pricing) | ✅ Public | Custom Website Setup: $1,795+<br>Essentials (monthly): $195/mo<br>**Grow (monthly)**: $795/mo ($145 if Rentvine)<br>Premier (monthly): $1,295/mo ($795 if Rentvine) |
+| [All Property Management](https://www.allpropertymanagement.com/about/join-our-network/) | ✅ Public | Residential (Single/Condo): $40–$145/lead<br>Vacation rentals: $65–$70/lead<br>Associations (HOA/Condo): $75–$150/lead<br>**Commercial**: $85–$135/lead<br>Specialized (parking, biotech): $95–$105/lead |
 
 <details>
-<summary>Notes (2)</summary>
+<summary>Notes (3)</summary>
 
 - **Zillow Rental Manager** — Landlord-side is mostly free (ACH rent collection included). Renter pays $35 application fee + 2.95% CC fee or $9.95 debit fee. Page blocks automated fetches — values verified manually.
 - **PMW (Property Manager Websites)** — Two pricing axes: site build + monthly support. Custom page add-on $795/page. Rentvine clients get steep monthly discount.
+- **All Property Management** — Per-lead minimum bids vary by property type, unit count, and square footage. No monthly fees, no contracts. PMs can bid above the minimum for priority placement.
 
 </details>
 
@@ -184,11 +165,13 @@ These vendors expect property managers to sit through a sales call before learni
 
 | Vendor | Status | Tiers |
 |---|---|---|
+| [Aptly](https://www.getaptly.com/pricing) | ✅ Public | Essential: $40/user/mo<br>**Premium**: $80/user/mo<br>Enterprise: Custom |
 | [LeadSimple](https://www.leadsimple.com/pricing) | ✅ Public | Phone+Inbox Core: $29/user/mo<br>Phone+Inbox Pro: $59/user/mo<br>CRM: $99/mo + $30/extra user<br>**Operations**: $1.35/door/mo ($200 min) |
 
 <details>
-<summary>Notes (1)</summary>
+<summary>Notes (2)</summary>
 
+- **Aptly** — Priced per-user, not per-door — unusual in PM software and friendly to smaller teams. Monthly and annual billing both offered. Enterprise tier is custom-quoted but Essential and Premium are fully posted.
 - **LeadSimple** — Usage overages disclosed: 2.5¢/SMS, 5¢/call min. Work Order sync add-on $0.65/door/mo.
 
 </details>

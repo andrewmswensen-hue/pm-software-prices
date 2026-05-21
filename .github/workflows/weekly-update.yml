@@ -31,6 +31,9 @@ jobs:
         run: python scripts/chatter.py | tee /tmp/chatter_output.txt
         continue-on-error: true
 
+      - name: Record price history if tiers changed
+        run: python scripts/record_price_history.py
+
       - name: Regenerate README
         run: python scripts/render_readme.py
 

@@ -129,6 +129,102 @@ section .section-desc {
   max-width: 700px;
 }
 
+/* RECENT CHANGES */
+#recent-changes {
+  margin-bottom: 56px;
+}
+.empty-state {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  box-shadow: var(--shadow);
+  color: var(--muted);
+}
+.empty-state p {
+  margin: 0 0 8px;
+}
+.empty-state p:last-child {
+  margin-bottom: 0;
+}
+.empty-state strong {
+  color: var(--text);
+}
+
+.change-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.change-item {
+  display: flex;
+  gap: 24px;
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--border);
+}
+.change-item:last-child {
+  border-bottom: none;
+}
+.change-date {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 13px;
+  color: var(--muted);
+  min-width: 100px;
+  padding-top: 2px;
+}
+.change-body {
+  flex: 1;
+}
+.change-vendor {
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  margin-right: 10px;
+}
+.change-vendor:hover {
+  color: var(--accent);
+}
+.change-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 2px 8px;
+  border-radius: 4px;
+  vertical-align: middle;
+}
+.change-badge.price {
+  background: var(--yellow-bg);
+  color: var(--yellow);
+}
+.change-badge.added {
+  background: var(--green-bg);
+  color: var(--green);
+}
+.change-badge.removed {
+  background: var(--red-bg);
+  color: var(--red);
+}
+.change-detail {
+  margin-top: 4px;
+  font-size: 14px;
+  color: var(--text);
+}
+.change-detail .old-price {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+.change-detail .new-price {
+  font-weight: 700;
+  color: var(--text);
+}
+
 /* HALL OF SHAME */
 .shame-grid {
   display: grid;
@@ -273,7 +369,24 @@ tbody td.tiers .qualifier {
 tbody td.notes {
   font-size: 12px;
   color: var(--muted);
-  max-width: 320px;
+  max-width: 280px;
+}
+tbody td.history {
+  font-size: 11px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.history-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.history-cell .tracking-since {
+  font-weight: 500;
+  color: var(--text);
+}
+.history-cell .data-points {
+  font-style: italic;
 }
 
 /* STATUS BADGES */
@@ -328,7 +441,10 @@ footer .repo-link:hover { border-color: var(--text); text-decoration: none; }
   .shame-grid { grid-template-columns: 1fr; }
   header h1 { font-size: 28px; }
   header { padding: 32px 0 24px; }
-  tbody td.notes { display: none; }
+  tbody td.notes, tbody td.history,
+  thead th:nth-child(4), thead th:nth-child(5) { display: none; }
+  .change-item { flex-direction: column; gap: 6px; padding: 14px 18px; }
+  .change-date { min-width: 0; }
 }
 
 @media (max-width: 640px) {

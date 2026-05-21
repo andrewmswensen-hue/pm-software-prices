@@ -1,9 +1,10 @@
 {
   "metadata": {
     "last_updated": "2026-05-21",
-    "version": "1.0",
+    "version": "1.1",
     "maintainer": "Peter Lohmann Media",
-    "editorial_stance": "Would it help the average property manager to know this?"
+    "editorial_stance": "Would it help the average property manager to know this?",
+    "classification_framework": "Hall of Shame = zero pricing visible publicly. A 'Custom Enterprise' tier alongside listed prices is a footnote, not shame."
   },
   "vendors": [
     {
@@ -29,7 +30,7 @@
         }
       ],
       "notes": "Page names three tiers (Core, Plus, Max) but shows zero dollar amounts. 'Minimum spend and units apply. Contact us for details.'",
-      "shame_line": "Names three tiers. Won't tell you what any of them cost. AppFolio is publicly traded (NASDAQ: APPF) \u2014 they disclose pricing dynamics in earnings calls but not on their pricing page.",
+      "shame_line": "Names three tiers (Core / Plus / Max), shows zero dollar amounts. AppFolio is publicly traded \u2014 they disclose pricing dynamics in quarterly earnings calls, just not on their pricing page.",
       "third_party_intel": "Operator reports suggest ~$1.40/unit floor, $250/mo minimum, plus per-transaction fees. Not vendor-confirmed.",
       "last_checked": "2026-05-21",
       "last_changed": null,
@@ -64,7 +65,18 @@
       "notes": "Portfolios over 5,000 units require sales contact. Add-ons priced separately: eSignature $1\u2013$5/doc, screening $17\u2013$20/applicant, plus payment transaction fees.",
       "last_checked": "2026-05-21",
       "last_changed": null,
-      "change_log": []
+      "change_log": [],
+      "tracking_since": "2026-05-21",
+      "price_history": [
+        {
+          "date": "2026-05-21",
+          "tiers": {
+            "Essential": "$62/mo",
+            "Growth": "$192/mo",
+            "Premium": "$400/mo"
+          }
+        }
+      ]
     },
     {
       "name": "Property Meld",
@@ -92,7 +104,18 @@
       "notes": "$160/mo minimum. Recommends 100+ doors. Enterprise (50,000+ units) is custom.",
       "last_checked": "2026-05-21",
       "last_changed": null,
-      "change_log": []
+      "change_log": [],
+      "tracking_since": "2026-05-21",
+      "price_history": [
+        {
+          "date": "2026-05-21",
+          "tiers": {
+            "Core": "$1.60/unit",
+            "Ops": "$2.00/unit",
+            "MAX On-Call (add-on)": "$1.50/unit"
+          }
+        }
+      ]
     },
     {
       "name": "Second Nature",
@@ -109,7 +132,7 @@
         }
       ],
       "notes": "Seven benefit modules listed but none priced individually. $500 refundable deposit is the only stated upfront cost.",
-      "shame_line": "Residents pay $20\u2013$80/mo, but the actual PM-facing margin? You'll need a demo for that.",
+      "shame_line": "Residents are told they'll pay $20\u2013$80/mo. What the PM actually earns or pays? Not disclosed. The whole margin is invisible.",
       "last_checked": "2026-05-21",
       "last_changed": null,
       "change_log": []
@@ -140,7 +163,18 @@
       "notes": "Implementation fee is 2\u00d7 monthly subscription (significant). Add-ons (Maintenance Contact Center, websites, AssetProtect) are quote-only.",
       "last_checked": "2026-05-21",
       "last_changed": null,
-      "change_log": []
+      "change_log": [],
+      "tracking_since": "2026-05-21",
+      "price_history": [
+        {
+          "date": "2026-05-21",
+          "tiers": {
+            "Basic": "$1.00/unit ($250 min)",
+            "Plus": "$1.50/unit ($350 min)",
+            "Premium": "$2.00/unit ($450 min)"
+          }
+        }
+      ]
     },
     {
       "name": "Aptly",
@@ -148,19 +182,38 @@
       "category": "CRM/Workflow",
       "homepage": "https://www.getaptly.com/",
       "pricing_url": "https://www.getaptly.com/pricing",
-      "status": "gated",
-      "pricing_model": "Custom per-portfolio",
+      "status": "public_full",
+      "pricing_model": "Per-user monthly or annual",
       "tiers": [
         {
-          "name": "All plans",
-          "price_display": "\ud83d\udd12 Hidden"
+          "name": "Essential",
+          "price_display": "$40/user/mo"
+        },
+        {
+          "name": "Premium",
+          "price_display": "$80/user/mo",
+          "highlighted": true
+        },
+        {
+          "name": "Enterprise",
+          "price_display": "Custom"
         }
       ],
-      "notes": "Zero pricing transparency. No tiers named publicly. Demo-only path.",
-      "shame_line": "No tiers, no prices, no hints. Aptly won't even name their plans publicly. That's a choice.",
+      "notes": "Priced per-user, not per-door \u2014 unusual in PM software and friendly to smaller teams. Monthly and annual billing both offered. Enterprise tier is custom-quoted but Essential and Premium are fully posted.",
       "last_checked": "2026-05-21",
       "last_changed": null,
-      "change_log": []
+      "change_log": [],
+      "tracking_since": "2026-05-21",
+      "price_history": [
+        {
+          "date": "2026-05-21",
+          "tiers": {
+            "Essential": "$40/user/mo",
+            "Premium": "$80/user/mo",
+            "Enterprise": "Custom"
+          }
+        }
+      ]
     },
     {
       "name": "LeadSimple",
@@ -192,7 +245,19 @@
       "notes": "Usage overages disclosed: 2.5\u00a2/SMS, 5\u00a2/call min. Work Order sync add-on $0.65/door/mo.",
       "last_checked": "2026-05-21",
       "last_changed": null,
-      "change_log": []
+      "change_log": [],
+      "tracking_since": "2026-05-21",
+      "price_history": [
+        {
+          "date": "2026-05-21",
+          "tiers": {
+            "Phone+Inbox Core": "$29/user/mo",
+            "Phone+Inbox Pro": "$59/user/mo",
+            "CRM": "$99/mo + $30/extra user",
+            "Operations": "$1.35/door/mo ($200 min)"
+          }
+        }
+      ]
     },
     {
       "name": "Rentvine",
@@ -212,7 +277,16 @@
       "notes": "$199/mo minimum (per industry sources, not confirmed on page). Screening fees: $10 or 10% per applicant. Comparison chart uses '$-$$$' notation rather than exact figures for competitors.",
       "last_checked": "2026-05-21",
       "last_changed": null,
-      "change_log": []
+      "change_log": [],
+      "tracking_since": "2026-05-21",
+      "price_history": [
+        {
+          "date": "2026-05-21",
+          "tiers": {
+            "All-Inclusive": "$1.50/unit"
+          }
+        }
+      ]
     },
     {
       "name": "Zillow Rental Manager",
@@ -236,7 +310,17 @@
       "shame_line": "Zillow's pricing page actively blocks scrapers. We track this one manually.",
       "last_checked": "2026-05-21",
       "last_changed": null,
-      "change_log": []
+      "change_log": [],
+      "tracking_since": "2026-05-21",
+      "price_history": [
+        {
+          "date": "2026-05-21",
+          "tiers": {
+            "Basic Listing": "Free",
+            "Premium Listing": "$29.99 / 90 days"
+          }
+        }
+      ]
     },
     {
       "name": "Apartments.com (for PMs)",
@@ -261,7 +345,7 @@
         }
       ],
       "notes": "Tenant screening reports = $24.99 each (publicly listed). Tenant CC fee = 2.75%. Listing/exposure pricing for PMs is sales-negotiated. Page also blocks automated fetches.",
-      "shame_line": "Three tier names. Zero dollar amounts. Whatever you pay, the place next door probably pays less.",
+      "shame_line": "Three tier names \u2014 Basic, Pro, Enterprise. Zero dollar amounts for any of them. Whatever you pay for advertising, the property next door probably pays less.",
       "third_party_intel": "Industry reports cite ~$200\u2013$400/mo for larger complexes \u2014 vendor does not confirm.",
       "last_checked": "2026-05-21",
       "last_changed": null,
@@ -301,7 +385,20 @@
       "shame_line": "NARPM's membership pricing is fully public \u2014 but you have to start a Cvent registration flow to see Broker/Owner conference fees. C'mon.",
       "last_checked": "2026-05-21",
       "last_changed": null,
-      "change_log": []
+      "change_log": [],
+      "tracking_since": "2026-05-21",
+      "price_history": [
+        {
+          "date": "2026-05-21",
+          "tiers": {
+            "Professional Individual": "$320/yr ($270 first year)",
+            "Support Staff": "$175/yr ($125 first year)",
+            "National Affiliate": "$320/yr ($270 first year)",
+            "Company Membership": "$760 base + $125/extra member",
+            "Broker/Owner Conference": "\ud83d\udd12 Hidden (Cvent portal)"
+          }
+        }
+      ]
     },
     {
       "name": "Slack",
@@ -333,7 +430,19 @@
       "notes": "Monthly billing is higher: Pro $8.75/user, Business+ $18/user. 50% off promo for first 3 months on new workspaces.",
       "last_checked": "2026-05-21",
       "last_changed": null,
-      "change_log": []
+      "change_log": [],
+      "tracking_since": "2026-05-21",
+      "price_history": [
+        {
+          "date": "2026-05-21",
+          "tiers": {
+            "Free": "$0",
+            "Pro": "$7.25/user/mo annual",
+            "Business+": "$15/user/mo annual",
+            "Enterprise+": "Contact sales"
+          }
+        }
+      ]
     },
     {
       "name": "Notion",
@@ -365,7 +474,19 @@
       "notes": "Up to 20% off with annual billing. Guests are free.",
       "last_checked": "2026-05-21",
       "last_changed": null,
-      "change_log": []
+      "change_log": [],
+      "tracking_since": "2026-05-21",
+      "price_history": [
+        {
+          "date": "2026-05-21",
+          "tiers": {
+            "Free": "$0",
+            "Plus": "$10/member/mo",
+            "Business": "$20/member/mo",
+            "Enterprise": "Contact sales"
+          }
+        }
+      ]
     },
     {
       "name": "Google Workspace",
@@ -397,7 +518,19 @@
       "notes": "Business tiers capped at 300 users. 16% discount with annual commitment. Storage: 30 GB / 2 TB / 5 TB pooled.",
       "last_checked": "2026-05-21",
       "last_changed": null,
-      "change_log": []
+      "change_log": [],
+      "tracking_since": "2026-05-21",
+      "price_history": [
+        {
+          "date": "2026-05-21",
+          "tiers": {
+            "Business Starter": "$7/user/mo",
+            "Business Standard": "$14/user/mo",
+            "Business Plus": "$22/user/mo",
+            "Enterprise": "Contact sales"
+          }
+        }
+      ]
     },
     {
       "name": "ProfitCoach",
@@ -437,7 +570,21 @@
       "notes": "Surprisingly transparent for a high-touch PM consulting firm.",
       "last_checked": "2026-05-21",
       "last_changed": null,
-      "change_log": []
+      "change_log": [],
+      "tracking_since": "2026-05-21",
+      "price_history": [
+        {
+          "date": "2026-05-21",
+          "tiers": {
+            "ProfitDive (one-time)": "$4,500 ($2,000 if NARPM-standards)",
+            "GameChanger Coaching": "$1,195/mo",
+            "Boost Coaching": "$495/mo",
+            "Process Design": "$2,500/process",
+            "Process Optimization": "$1,500/process",
+            "Accounting Services": "Contact for quote"
+          }
+        }
+      ]
     },
     {
       "name": "zInspector",
@@ -461,7 +608,17 @@
       "shame_line": "Pricing exists publicly, but you have to load JavaScript to see it. We'll add a real browser in V2.",
       "last_checked": "2026-05-21",
       "last_changed": null,
-      "change_log": []
+      "change_log": [],
+      "tracking_since": "2026-05-21",
+      "price_history": [
+        {
+          "date": "2026-05-21",
+          "tiers": {
+            "Free": "$0 (\u22645 properties)",
+            "Paid tiers": "~$16\u2013$28/mo (4 editions)"
+          }
+        }
+      ]
     },
     {
       "name": "PropertyManagement.com",
@@ -482,7 +639,7 @@
         }
       ],
       "notes": "Vetted directory connecting owners with PMs via TrueMatch\u2122 algorithm. Owner side is free. PM-facing upgrade pricing is not published.",
-      "shame_line": "Says it's 'zero pay-to-play' for rankings \u2014 but won't say what the optional PM upgrade costs.",
+      "shame_line": "Branded as 'zero pay-to-play' for rankings \u2014 but won't say what the optional PM profile upgrade actually costs.",
       "last_checked": "2026-05-21",
       "last_changed": null,
       "change_log": []
@@ -513,7 +670,18 @@
       "notes": "All marketed as '$3/unit'. 300+ units triggers custom quote. Promotional pricing occasionally shown (30% off + zero onboarding fee).",
       "last_checked": "2026-05-21",
       "last_changed": null,
-      "change_log": []
+      "change_log": [],
+      "tracking_since": "2026-05-21",
+      "price_history": [
+        {
+          "date": "2026-05-21",
+          "tiers": {
+            "Starter (\u226410 units)": "$69/mo annual ($99 monthly)",
+            "Pro": "$149/mo annual ($189 monthly)",
+            "Premium": "$209/mo annual ($239 monthly)"
+          }
+        }
+      ]
     },
     {
       "name": "Haven",
@@ -530,7 +698,7 @@
         }
       ],
       "notes": "AI property management agent. No published pricing page. Third-party references cite ~$499/mo starting and $1.50\u2013$5/door for larger portfolios. Not vendor-confirmed.",
-      "shame_line": "An AI company that won't tell you what it costs. Demo-led only.",
+      "shame_line": "An AI company building tools for the PM industry \u2014 and they won't even publish what their tools cost. Demo-led pricing only.",
       "third_party_intel": "~$499/mo entry, $1.50\u2013$5/door (per industry sources).",
       "last_checked": "2026-05-21",
       "last_changed": null,
@@ -566,7 +734,19 @@
       "notes": "Multi-family minimum ~2,000 doors for the 70\u00a2/door tier. MojoBox lockbox $64 one-time + $3.50/mo. Live Answer add-on from $11/week/listing.",
       "last_checked": "2026-05-21",
       "last_changed": null,
-      "change_log": []
+      "change_log": [],
+      "tracking_since": "2026-05-21",
+      "price_history": [
+        {
+          "date": "2026-05-21",
+          "tiers": {
+            "Pro (unit-based)": "$1.30/unit",
+            "Ultra (unit-based)": "$2.70/unit",
+            "Pro (listing-based)": "$50/listing",
+            "Ultra (listing-based)": "$110/listing"
+          }
+        }
+      ]
     },
     {
       "name": "Tenant Turner",
@@ -590,7 +770,17 @@
       "notes": "$19 one-time carrier registration. Lockboxes/locks fully priced (SerosBox $59+$3.50/mo, SentriLock $175+$5/mo). Messaging add-on $25/mo for 500 + 3\u00a2 after.",
       "last_checked": "2026-05-21",
       "last_changed": null,
-      "change_log": []
+      "change_log": [],
+      "tracking_since": "2026-05-21",
+      "price_history": [
+        {
+          "date": "2026-05-21",
+          "tiers": {
+            "Pro": "$1.30/unit ($65 min)",
+            "Ultra": "$2.70/unit ($135 min)"
+          }
+        }
+      ]
     },
     {
       "name": "RentEngine",
@@ -598,7 +788,7 @@
       "category": "Leasing",
       "homepage": "https://www.rentengine.io/",
       "pricing_url": "https://www.rentengine.io/pricing",
-      "status": "public_partial",
+      "status": "public_full",
       "pricing_model": "Per-listing transactional + monthly minimum + onboarding fee",
       "tiers": [
         {
@@ -610,10 +800,20 @@
           "price_display": "Contact sales"
         }
       ],
-      "notes": "One-time onboarding fee disclosed but amount not visible.",
+      "notes": "Standard tier is fully priced ($45/listing + $250/mo min). One-time onboarding fee amount not visible. Custom tier for 2,000+ doors is sales-quoted (standard for enterprise tier).",
       "last_checked": "2026-05-21",
       "last_changed": null,
-      "change_log": []
+      "change_log": [],
+      "tracking_since": "2026-05-21",
+      "price_history": [
+        {
+          "date": "2026-05-21",
+          "tiers": {
+            "Standard": "$45/listing ($250/mo min)",
+            "Custom (2,000+ doors)": "Contact sales"
+          }
+        }
+      ]
     },
     {
       "name": "Gusto",
@@ -645,7 +845,19 @@
       "notes": "Month-to-month, no contract. Unlimited payrolls. Benefits add-ons priced separately.",
       "last_checked": "2026-05-21",
       "last_changed": null,
-      "change_log": []
+      "change_log": [],
+      "tracking_since": "2026-05-21",
+      "price_history": [
+        {
+          "date": "2026-05-21",
+          "tiers": {
+            "Contractor Only": "$0\u2013$35/mo base + $6/contractor",
+            "Simple": "$49/mo + $6/employee",
+            "Plus": "$80/mo + $12/employee",
+            "Premium": "$180/mo + $22/employee"
+          }
+        }
+      ]
     },
     {
       "name": "Xero",
@@ -673,7 +885,18 @@
       "notes": "First month free. Gusto payroll integration separate ($80\u2013$260+/mo).",
       "last_checked": "2026-05-21",
       "last_changed": null,
-      "change_log": []
+      "change_log": [],
+      "tracking_since": "2026-05-21",
+      "price_history": [
+        {
+          "date": "2026-05-21",
+          "tiers": {
+            "Early": "$25/mo (20 invoices, 5 bills cap)",
+            "Growing": "$55/mo (unlimited)",
+            "Established": "$90/mo (+ multi-currency, projects, analytics)"
+          }
+        }
+      ]
     },
     {
       "name": "QuickBooks Online",
@@ -705,7 +928,19 @@
       "notes": "Post-July 2025 price increase. User caps: 1 / 3 / 5 / 25. 50%-off-for-3-months promo typically shown. Payroll, Payments, Live Bookkeeping are add-ons.",
       "last_checked": "2026-05-21",
       "last_changed": null,
-      "change_log": []
+      "change_log": [],
+      "tracking_since": "2026-05-21",
+      "price_history": [
+        {
+          "date": "2026-05-21",
+          "tiers": {
+            "Simple Start": "$38/mo",
+            "Essentials": "$75/mo",
+            "Plus": "$115/mo",
+            "Advanced": "$275/mo"
+          }
+        }
+      ]
     },
     {
       "name": "PMW (Property Manager Websites)",
@@ -737,7 +972,19 @@
       "notes": "Two pricing axes: site build + monthly support. Custom page add-on $795/page. Rentvine clients get steep monthly discount.",
       "last_checked": "2026-05-21",
       "last_changed": null,
-      "change_log": []
+      "change_log": [],
+      "tracking_since": "2026-05-21",
+      "price_history": [
+        {
+          "date": "2026-05-21",
+          "tiers": {
+            "Custom Website Setup": "$1,795+",
+            "Essentials (monthly)": "$195/mo",
+            "Grow (monthly)": "$795/mo ($145 if Rentvine)",
+            "Premier (monthly)": "$1,295/mo ($795 if Rentvine)"
+          }
+        }
+      ]
     },
     {
       "name": "EliseAI",
@@ -754,7 +1001,7 @@
         }
       ],
       "notes": "/pricing URL returns 404. Main nav has no pricing link. Their blog explicitly says 'pricing reflects advanced, highly customizable AI; contact us if price is a primary concern.'",
-      "shame_line": "EliseAI doesn't have a pricing page at all. Not 'gated' \u2014 they didn't even bother to make one.",
+      "shame_line": "Not even a pricing page exists. /pricing returns 404. They didn't bother gating it \u2014 they didn't bother making one.",
       "last_checked": "2026-05-21",
       "last_changed": null,
       "change_log": []
@@ -774,7 +1021,7 @@
         }
       ],
       "notes": "Free 30-min consult. Previously advertised '60+ pricing models' \u2014 they've leaned into customization rather than transparency.",
-      "shame_line": "60+ pricing models. Zero of them on the website.",
+      "shame_line": "They publicly market '60+ pricing models' for bookkeeping. None of those 60+ models appear on the website. Customization is fine; total opacity is not.",
       "last_checked": "2026-05-21",
       "last_changed": null,
       "change_log": []
@@ -785,20 +1032,48 @@
       "category": "Listings/Marketing",
       "homepage": "https://www.allpropertymanagement.com/",
       "pricing_url": "https://www.allpropertymanagement.com/about/join-our-network/",
-      "status": "gated",
-      "pricing_model": "Pay-per-lead, no monthly fees, no contracts",
+      "status": "public_full",
+      "pricing_model": "Pay-per-lead, by property type and size (minimum bid)",
       "tiers": [
         {
-          "name": "Per-lead bids",
-          "price_display": "\ud83d\udd12 Hidden"
+          "name": "Residential (Single/Condo)",
+          "price_display": "$40\u2013$145/lead"
+        },
+        {
+          "name": "Vacation rentals",
+          "price_display": "$65\u2013$70/lead"
+        },
+        {
+          "name": "Associations (HOA/Condo)",
+          "price_display": "$75\u2013$150/lead"
+        },
+        {
+          "name": "Commercial",
+          "price_display": "$85\u2013$135/lead",
+          "highlighted": true
+        },
+        {
+          "name": "Specialized (parking, biotech)",
+          "price_display": "$95\u2013$105/lead"
         }
       ],
-      "notes": "Now a Buildium company. PMs configure bids by zip/property type. Industry estimates: $30\u2013$300/lead, ~$60 average \u2014 not vendor-confirmed.",
-      "shame_line": "A Buildium company. Buildium publishes pricing. This sibling doesn't.",
-      "third_party_intel": "$30\u2013$300 per lead, ~$60 average (per industry sources).",
+      "notes": "Per-lead minimum bids vary by property type, unit count, and square footage. No monthly fees, no contracts. PMs can bid above the minimum for priority placement.",
       "last_checked": "2026-05-21",
       "last_changed": null,
-      "change_log": []
+      "change_log": [],
+      "tracking_since": "2026-05-21",
+      "price_history": [
+        {
+          "date": "2026-05-21",
+          "tiers": {
+            "Residential (Single/Condo)": "$40\u2013$145/lead",
+            "Vacation rentals": "$65\u2013$70/lead",
+            "Associations (HOA/Condo)": "$75\u2013$150/lead",
+            "Commercial": "$85\u2013$135/lead",
+            "Specialized (parking, biotech)": "$95\u2013$105/lead"
+          }
+        }
+      ]
     },
     {
       "name": "Boom",
@@ -822,7 +1097,17 @@
       "shame_line": "Pricing model is transparent (pay-per-use, no minimums) \u2014 exact dollar amounts behind the model are not.",
       "last_checked": "2026-05-21",
       "last_changed": null,
-      "change_log": []
+      "change_log": [],
+      "tracking_since": "2026-05-21",
+      "price_history": [
+        {
+          "date": "2026-05-21",
+          "tiers": {
+            "BoomScreen (Tenant Screening)": "PM sets applicant price",
+            "BoomReport (Rent Reporting)": "At-cost or pass-through to renter"
+          }
+        }
+      ]
     },
     {
       "name": "EZ Repair Hotline",
@@ -830,19 +1115,29 @@
       "category": "Maintenance",
       "homepage": "https://michaelfairbanks0.wixsite.com/mysite-3",
       "pricing_url": "https://michaelfairbanks0.wixsite.com/mysite-3",
-      "status": "gated",
-      "pricing_model": "Custom (based on call volume / portfolio)",
+      "status": "public_partial",
+      "pricing_model": "Subscription \u2014 unit basis not specified",
       "tiers": [
         {
-          "name": "All services",
-          "price_display": "\ud83d\udd12 Hidden"
+          "name": "Listed price",
+          "price_display": "$1.49/mo",
+          "qualifier": "starts at"
         }
       ],
-      "notes": "Phone: 800-488-6032. Site hosted on a Wix subdomain \u2014 unusually informal for the size of the operation. Worth confirming canonical URL with the vendor.",
-      "shame_line": "Their website is on a Wix subdomain (michaelfairbanks0.wixsite.com). Pricing isn't on it.",
+      "notes": "Price ($1.49/mo) shown as an image on a Wix subdomain \u2014 but the page never says whether that's per property, per unit, per call, or a flat fee. Confirm the unit basis before signing.",
+      "shame_line": "Pricing is visible \u2014 but as an image on a Wix subdomain, with no unit clarification. Better than nothing, worse than transparent.",
       "last_checked": "2026-05-21",
       "last_changed": null,
-      "change_log": []
+      "change_log": [],
+      "tracking_since": "2026-05-21",
+      "price_history": [
+        {
+          "date": "2026-05-21",
+          "tiers": {
+            "Listed price": "$1.49/mo"
+          }
+        }
+      ]
     }
   ]
 }

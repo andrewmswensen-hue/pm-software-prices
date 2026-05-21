@@ -4,7 +4,11 @@ A weekly-updated public dashboard that tracks pricing changes across ~30 softwar
 
 ## What this is
 
-A GitHub repo whose **README.md is the dashboard**. Anyone can view it at the repo URL. Each weekly commit captures that week's prices, so `git log` is the pricing history.
+A GitHub repo with two faces:
+- **Live dashboard** at `https://andrewmswensen-hue.github.io/pm-software-prices/` — clean HTML/CSS, the canonical public view
+- **README.md** at the repo URL — a code-side mirror of the same data
+
+Each weekly commit captures that week's prices, so `git log` is the pricing history.
 
 **Editorial north star:** "Would it help the average property manager to know this?" Vendors with gated pricing are publicly flagged ("name and shame"). See `memory/plm-editorial-stance.md` in `~/.claude/projects/.../memory/` for the full editorial posture.
 
@@ -30,16 +34,22 @@ Monday 9 AM ET
 
 ```
 PM-Pricing-Tracker/
-├── CLAUDE.md                    ← This file
-├── README.md                    ← The dashboard (auto-generated, do not hand-edit)
+├── CLAUDE.md                       ← This file
+├── README.md                       ← Code-side dashboard (auto-generated)
+├── docs/
+│   ├── index.html                  ← Live HTML dashboard (auto-generated)
+│   └── styles.css                  ← Dashboard styles
 ├── data/
-│   ├── vendors.json             ← Master vendor data
-│   ├── snapshots/YYYY-MM-DD/    ← Weekly text snapshots per vendor
-│   └── chatter/YYYY-MM-DD.json  ← Weekly Reddit/X/LinkedIn findings
+│   ├── vendors.json                ← Master vendor data — source of truth
+│   ├── snapshots/YYYY-MM-DD/       ← Weekly text snapshots per vendor
+│   └── chatter/YYYY-MM-DD.json     ← Weekly Reddit findings
 ├── scripts/
-│   ├── weekly_update.py         ← The everything-script
-│   ├── render_readme.py         ← Generates README.md from vendors.json
-│   └── chatter.py               ← Social media chatter search
+│   ├── weekly_update.py            ← Fetches public pricing pages, diffs
+│   ├── render_readme.py            ← Generates README.md from vendors.json
+│   ├── render_dashboard.py         ← Generates docs/index.html from vendors.json
+│   └── chatter.py                  ← Reddit chatter search
+├── .github/workflows/
+│   └── weekly-update.yml           ← GitHub Actions weekly job
 └── .gitignore
 ```
 

@@ -1,0 +1,52 @@
+name: Weekly Pricing Update
+
+on:
+  schedule:
+    # Mondays at 14:00 UTC == 9:00 AM ET (10:00 AM ET during DST)
+    - cron: '0 14 * * 1'
+  workflow_dispatch:  # Manual trigger from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run pricing scraper
+        run: python scripts/weekly_update.py | tee /tmp/scrape_output.txt
+        continue-on-error: true
+
+      - name: Run Reddit chatter search
+        run: python scripts/chatter.py | tee /tmp/chatter_output.txt
+        continue-on-error: true
+
+      - name: Regenerate README
+        run: python scripts/render_readme.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "Pricing Tracker Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          DATE=$(date +%Y-%m-%d)
+          SCRAPE_SUMMARY=$(tail -25 /tmp/scrape_output.txt || echo "(no scrape output)")
+          CHATTER_SUMMARY=$(tail -5 /tmp/chatter_output.txt || echo "(no chatter output)")
+          git commit -m "Weekly update: $DATE" \
+                     -m "Scraper summary:" -m "$SCRAPE_SUMMARY" \
+                     -m "Chatter summary:" -m "$CHATTER_SUMMARY"
+          git push

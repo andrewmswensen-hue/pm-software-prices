@@ -12,7 +12,7 @@ permissions:
 jobs:
   scrape:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 20
 
     steps:
       - name: Checkout repo
@@ -22,9 +22,6 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-
-      - name: Install dependencies
-        run: pip install anthropic
 
       - name: Run pricing scraper
         run: python scripts/weekly_update.py | tee /tmp/scrape_output.txt
@@ -43,42 +40,45 @@ jobs:
       - name: Regenerate live dashboard
         run: python scripts/render_dashboard.py
 
-      - name: Detect changes
+      - name: Detect changes (log only)
         id: detect
         run: |
           COUNT=$(python scripts/detect_changes.py)
           echo "count=$COUNT" >> $GITHUB_OUTPUT
-          echo "Detected $COUNT change(s)"
+          echo "Detected $COUNT change(s) this week"
 
-      - name: Generate newsletter snippets (Claude)
-        if: steps.detect.outputs.count != '0'
-        run: python scripts/generate_snippets.py
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-
-      - name: Build email body
-        if: steps.detect.outputs.count != '0'
-        id: build_email
-        run: |
-          python scripts/build_email.py
-          SUBJECT=$(cat /tmp/email_subject.txt)
-          echo "subject=$SUBJECT" >> $GITHUB_OUTPUT
-
-      - name: Send notification email
-        if: steps.detect.outputs.count != '0' && env.SMTP_PASSWORD != ''
-        uses: dawidd6/action-send-mail@v3
-        env:
-          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
-        with:
-          server_address: smtp.gmail.com
-          server_port: 587
-          secure: false
-          username: ${{ secrets.SMTP_USERNAME }}
-          password: ${{ secrets.SMTP_PASSWORD }}
-          subject: ${{ steps.build_email.outputs.subject }}
-          to: aswensen@rlpmg.com, peter@rlpmg.com
-          from: PM Pricing Tracker <${{ secrets.SMTP_USERNAME }}>
-          html_body: file:///tmp/email_body.html
+      # Email + Claude snippet steps are intentionally disabled.
+      # Scripts (detect_changes.py, generate_snippets.py, build_email.py)
+      # remain in the repo and can be re-enabled by uncommenting the steps
+      # below and adding the ANTHROPIC_API_KEY secret.
+      #
+      # - name: Generate newsletter snippets (Claude)
+      #   if: steps.detect.outputs.count != '0'
+      #   run: python scripts/generate_snippets.py
+      #   env:
+      #     ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      #
+      # - name: Build email body
+      #   if: steps.detect.outputs.count != '0'
+      #   id: build_email
+      #   run: |
+      #     python scripts/build_email.py
+      #     SUBJECT=$(cat /tmp/email_subject.txt)
+      #     echo "subject=$SUBJECT" >> $GITHUB_OUTPUT
+      #
+      # - name: Send notification email
+      #   if: steps.detect.outputs.count != '0'
+      #   uses: dawidd6/action-send-mail@v3
+      #   with:
+      #     server_address: smtp.gmail.com
+      #     server_port: 587
+      #     secure: false
+      #     username: ${{ secrets.SMTP_USERNAME }}
+      #     password: ${{ secrets.SMTP_PASSWORD }}
+      #     subject: ${{ steps.build_email.outputs.subject }}
+      #     to: aswensen@rlpmg.com, peter@rlpmg.com
+      #     from: PM Pricing Tracker <${{ secrets.SMTP_USERNAME }}>
+      #     html_body: file:///tmp/email_body.html
 
       - name: Commit and push if changed
         run: |

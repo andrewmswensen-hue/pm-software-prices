@@ -12,7 +12,7 @@ permissions:
 jobs:
   scrape:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
 
     steps:
       - name: Checkout repo
@@ -22,6 +22,9 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install anthropic
 
       - name: Run pricing scraper
         run: python scripts/weekly_update.py | tee /tmp/scrape_output.txt
@@ -40,6 +43,43 @@ jobs:
       - name: Regenerate live dashboard
         run: python scripts/render_dashboard.py
 
+      - name: Detect changes
+        id: detect
+        run: |
+          COUNT=$(python scripts/detect_changes.py)
+          echo "count=$COUNT" >> $GITHUB_OUTPUT
+          echo "Detected $COUNT change(s)"
+
+      - name: Generate newsletter snippets (Claude)
+        if: steps.detect.outputs.count != '0'
+        run: python scripts/generate_snippets.py
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+
+      - name: Build email body
+        if: steps.detect.outputs.count != '0'
+        id: build_email
+        run: |
+          python scripts/build_email.py
+          SUBJECT=$(cat /tmp/email_subject.txt)
+          echo "subject=$SUBJECT" >> $GITHUB_OUTPUT
+
+      - name: Send notification email
+        if: steps.detect.outputs.count != '0' && env.SMTP_PASSWORD != ''
+        uses: dawidd6/action-send-mail@v3
+        env:
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          secure: false
+          username: ${{ secrets.SMTP_USERNAME }}
+          password: ${{ secrets.SMTP_PASSWORD }}
+          subject: ${{ steps.build_email.outputs.subject }}
+          to: aswensen@rlpmg.com, peter@rlpmg.com
+          from: PM Pricing Tracker <${{ secrets.SMTP_USERNAME }}>
+          html_body: file:///tmp/email_body.html
+
       - name: Commit and push if changed
         run: |
           git config user.name "Pricing Tracker Bot"
@@ -52,7 +92,13 @@ jobs:
           DATE=$(date +%Y-%m-%d)
           SCRAPE_SUMMARY=$(tail -25 /tmp/scrape_output.txt || echo "(no scrape output)")
           CHATTER_SUMMARY=$(tail -5 /tmp/chatter_output.txt || echo "(no chatter output)")
-          git commit -m "Weekly update: $DATE" \
+          CHANGES_COUNT="${{ steps.detect.outputs.count }}"
+          if [ "$CHANGES_COUNT" -gt "0" ]; then
+            COMMIT_MSG="Weekly update: $DATE ($CHANGES_COUNT price change(s) detected)"
+          else
+            COMMIT_MSG="Weekly update: $DATE (no price changes)"
+          fi
+          git commit -m "$COMMIT_MSG" \
                      -m "Scraper summary:" -m "$SCRAPE_SUMMARY" \
                      -m "Chatter summary:" -m "$CHATTER_SUMMARY"
           git push

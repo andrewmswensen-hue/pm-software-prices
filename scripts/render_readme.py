@@ -24,19 +24,20 @@ STATUS_BADGE = {
     "bot_blocked": "🚫 Manual",
 }
 
-# Categories ordered for the dashboard layout
+# Categories ordered for the dashboard layout (v1.2 structure)
 CATEGORY_ORDER = [
     "PM Software",
     "Maintenance",
     "Leasing",
     "Resident Benefits",
-    "Listings/Marketing",
     "Inspections",
     "CRM/Workflow",
-    "Communications",
-    "Finance",
     "Payments",
+    "Lead Generation",
+    "Listings Marketplaces",
+    "Sales & Marketing Services",
     "Industry Association",
+    "Business Tools",
 ]
 
 
@@ -62,14 +63,18 @@ def render():
     meta = data["metadata"]
 
     counts = defaultdict(int)
+    pending_count = 0
     for v in vendors:
         counts[v["status"]] += 1
+        if v.get("data_pending"):
+            pending_count += 1
 
     total = len(vendors)
     public_full = counts.get("public_full", 0)
     public_partial = counts.get("public_partial", 0)
     gated = counts.get("gated", 0)
     manual = counts.get("js_rendered", 0) + counts.get("bot_blocked", 0)
+    canonical_size = meta.get("normalization_defaults", {}).get("canonical_size", 500)
 
     L = []  # lines
 
@@ -101,6 +106,8 @@ def render():
     L.append(f"- 🔒 **{gated}** hide pricing entirely — see Hall of Shame below")
     if manual > 0:
         L.append(f"- ⚙️ **{manual}** publish pricing but block automated tracking (verified manually)")
+    if pending_count > 0:
+        L.append(f"- 📊 **{pending_count}** vendors need follow-up data (calculator pricing, invoice info, etc.)")
     L.append("")
     L.append("---")
     L.append("")
@@ -147,13 +154,31 @@ def render():
 
         L.append(f"### {category}")
         L.append("")
-        L.append("| Vendor | Status | Tiers |")
-        L.append("|---|---|---|")
+        L.append(f"| Vendor | Status | Cost at {canonical_size} doors | Tiers |")
+        L.append("|---|---|---|---|")
         for v in cat_vendors:
             badge = STATUS_BADGE.get(v["status"], v["status"])
             tier_strs = [format_tier(t) for t in v.get("tiers", [])]
             tiers_cell = "<br>".join(tier_strs) if tier_strs else "—"
-            L.append(f"| [{v['name']}]({v['pricing_url']}) | {badge} | {tiers_cell} |")
+            normalized = v.get("normalized_pricing") or {}
+            canonical = normalized.get(str(canonical_size))
+            pricing_unit = v.get("pricing_unit", "")
+            if canonical:
+                canonical_cell = f"**{canonical}**"
+            elif pricing_unit == "native_only":
+                canonical_cell = "_native pricing_"
+            elif pricing_unit == "variable":
+                canonical_cell = "_variable_"
+            elif pricing_unit in ("per_lead", "per_event"):
+                canonical_cell = "_volume-based_"
+            elif v.get("data_pending"):
+                canonical_cell = "📊 _pending_"
+            else:
+                canonical_cell = "—"
+            name_cell = f"[{v['name']}]({v['pricing_url']})"
+            if v.get("data_pending"):
+                name_cell += " 📊"
+            L.append(f"| {name_cell} | {badge} | {canonical_cell} | {tiers_cell} |")
         L.append("")
 
         # Per-vendor notes (collapsed under category)

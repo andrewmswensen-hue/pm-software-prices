@@ -16,9 +16,9 @@
     <div class="nav-links">
       <a href="#scorecard">Scorecard</a>
       <a href="#recent-changes">Recent Changes</a>
+      <a href="#methodology-section">How it's Calculated</a>
       <a href="#hall-of-shame">Hall of Shame</a>
       <a href="#all-vendors">All Vendors</a>
-      <a href="#methodology">How It Works</a>
     </div>
   </div>
 </nav>
@@ -26,7 +26,7 @@
 <header id="top">
   <div class="container">
     <h1>PM Software Pricing Tracker</h1>
-    <p class="subtitle">A weekly snapshot of pricing across the software residential property managers actually use. We publish every change so PMs can make informed buying decisions — even when vendors would rather you call sales.</p>
+    <p class="subtitle">A weekly snapshot of pricing across the software residential property managers actually use. We normalize prices to "Cost at 500 doors" so you can compare apples to apples, even when one vendor charges per door and another charges per user.</p>
     <div class="meta">
       <span>Last updated <strong>2026-05-25</strong></span>
       <span class="dot">·</span>
@@ -55,9 +55,9 @@
       <div class="number">7</div>
       <div class="label">Hide pricing entirely</div>
     </div>
-    <div class="stat manual">
-      <div class="number">2</div>
-      <div class="label">Verified manually</div>
+    <div class="stat pending">
+      <div class="number">6</div>
+      <div class="label">Need follow-up data</div>
     </div>
   </div>
 
@@ -71,6 +71,23 @@
     </section>
         
 
+  
+    <section id="methodology-section" class="methodology-card">
+      <h2>🧮 How "Cost at 500 doors" is calculated</h2>
+      <p class="section-desc">
+        For vendors who price per door or per unit, we multiply by 500. For vendors who price by user, listing, or other unit, we apply standard assumptions to convert to a comparable monthly number. Numbers are best-effort, not vendor-confirmed quotes.
+      </p>
+      <ul class="assumptions-list">
+        <li><strong>Canonical company size:</strong> 500 doors</li>
+        <li><strong>Breakdown sizes also shown:</strong> 100, 350, 1000 doors</li>
+        <li><strong>Default occupancy:</strong> 90%</li>
+        <li><strong>Active listings at any time:</strong> 60% of vacancies</li>
+        <li><strong>Users per door (for per-user pricing):</strong> 1 user per 75 doors</li>
+      </ul>
+      <p class="assumptions-note">Per-door equivalent prices computed using these defaults: 90% occupancy, 60% of vacancies actively listed, 1 user per 75 doors. Vendors with native_only pricing (Slack, Notion, etc.) show their published pricing. Vendors with starts_at qualifiers need a calculator we don&#x27;t have access to.</p>
+    </section>
+    
+
   <section id="hall-of-shame">
     <h2>🔒 Hall of Shame</h2>
     <p class="section-desc">These vendors publish <strong>zero pricing publicly</strong>. We don't shame vendors who have a custom "Enterprise" tier alongside listed prices — that's standard. We shame the ones who show nothing at all.</p>
@@ -82,6 +99,14 @@
               <blockquote>They publicly market &#x27;60+ pricing models&#x27; for bookkeeping. None of those 60+ models appear on the website. Customization is fine; total opacity is not.</blockquote>
               
               <a href="https://www.apmhelp.com/services" target="_blank" rel="noopener">View their (un)pricing page →</a>
+            </div>
+        
+            <div class="shame-card">
+              <h3>PropertyManagement.com</h3>
+              <p class="model">Freemium — free for owners, optional paid upgrade for PMs</p>
+              <blockquote>Branded as &#x27;zero pay-to-play&#x27; for rankings — but won&#x27;t say what the optional PM profile upgrade actually costs.</blockquote>
+              
+              <a href="https://www.propertymanagement.com/" target="_blank" rel="noopener">View their (un)pricing page →</a>
             </div>
         
             <div class="shame-card">
@@ -98,14 +123,6 @@
               <blockquote>Three tier names — Basic, Pro, Enterprise. Zero dollar amounts for any of them. Whatever you pay for advertising, the property next door probably pays less.</blockquote>
               <p class="intel"><strong>What operators report:</strong> Industry reports cite ~$200–$400/mo for larger complexes — vendor does not confirm.</p>
               <a href="https://www.apartments.com/rental-manager/" target="_blank" rel="noopener">View their (un)pricing page →</a>
-            </div>
-        
-            <div class="shame-card">
-              <h3>PropertyManagement.com</h3>
-              <p class="model">Freemium — free for owners, optional paid upgrade for PMs</p>
-              <blockquote>Branded as &#x27;zero pay-to-play&#x27; for rankings — but won&#x27;t say what the optional PM profile upgrade actually costs.</blockquote>
-              
-              <a href="https://www.propertymanagement.com/" target="_blank" rel="noopener">View their (un)pricing page →</a>
             </div>
         
             <div class="shame-card">
@@ -137,10 +154,10 @@
 
   <section id="all-vendors">
     <h2>📋 All Tracked Vendors</h2>
-    <p class="section-desc">Filter by category. Click any vendor name to visit their pricing page directly.</p>
+    <p class="section-desc">Filter by category. Click "See details" inside any row for tier-level pricing, breakdowns at 100 / 350 / 1000 doors, or follow-up notes.</p>
 
     <div class="filters">
-      <button class="filter-btn active" data-filter="all">All</button><button class="filter-btn" data-filter="PM Software">PM Software</button><button class="filter-btn" data-filter="Maintenance">Maintenance</button><button class="filter-btn" data-filter="Leasing">Leasing</button><button class="filter-btn" data-filter="Listings/Marketing">Listings/Marketing</button><button class="filter-btn" data-filter="Inspections">Inspections</button><button class="filter-btn" data-filter="CRM/Workflow">CRM/Workflow</button><button class="filter-btn" data-filter="Communications">Communications</button><button class="filter-btn" data-filter="Finance">Finance</button><button class="filter-btn" data-filter="Payments">Payments</button><button class="filter-btn" data-filter="Industry Association">Industry Association</button>
+      <button class="filter-btn active" data-filter="all">All</button><button class="filter-btn" data-filter="PM Software">PM Software</button><button class="filter-btn" data-filter="Maintenance">Maintenance</button><button class="filter-btn" data-filter="Leasing">Leasing</button><button class="filter-btn" data-filter="Inspections">Inspections</button><button class="filter-btn" data-filter="CRM/Workflow">CRM/Workflow</button><button class="filter-btn" data-filter="Payments">Payments</button><button class="filter-btn" data-filter="Lead Generation">Lead Generation</button><button class="filter-btn" data-filter="Listings Marketplaces">Listings Marketplaces</button><button class="filter-btn" data-filter="Sales &amp; Marketing Services">Sales &amp; Marketing Services</button><button class="filter-btn" data-filter="Industry Association">Industry Association</button><button class="filter-btn" data-filter="Business Tools">Business Tools</button>
     </div>
 
     <div class="table-wrap">
@@ -149,22 +166,20 @@
           <tr>
             <th>Vendor</th>
             <th>Status</th>
-            <th>Pricing</th>
+            <th>Cost at 500 doors</th>
             <th>History</th>
-            <th>Notes</th>
           </tr>
         </thead>
         <tbody id="vendor-rows">
           
             <tr data-category="PM Software" data-status="public_partial">
               <td class="vendor">
-                <a href="https://www.buildium.com/pricing/" target="_blank" rel="noopener">Buildium</a>
+                <a href="https://www.buildium.com/pricing/" target="_blank" rel="noopener">Buildium</a> <span class="pending-badge">data pending</span>
                 <span class="category-tag">PM Software</span>
               </td>
               <td><span class="badge public_partial">🟡 Partial</span></td>
-              <td class="tiers"><div class="tier"><span class="tier-name ">Essential:</span> <span class="qualifier">starts at</span> $62/mo</div><div class="tier"><span class="tier-name highlighted">Growth:</span> <span class="qualifier">starts at</span> $192/mo</div><div class="tier"><span class="tier-name ">Premium:</span> <span class="qualifier">starts at</span> $400/mo</div></td>
-              <td class="history"><div class="history-cell"><span class="tracking-since">Tracking since 2026-05-21</span><span class="data-points">1 data point</span></div></td>
-              <td class="notes">Portfolios over 5,000 units require sales contact. Add-ons priced separately: eSignature $1–$5/doc, screening $17–$20/applicant, plus payment transaction fees.</td>
+              <td class="pricing-cell"><div class="pricing-cell-inner"><div class="pending-label">📊 Data pending</div><div class="canonical-label">needs calculator or invoice data</div><details class="row-expand"><summary>See details</summary><div class="expand-body"><div class="expand-section data-pending-note"><div class="expand-label">📊 Data pending</div><p>Calculator pricing for 100/350/1000 doors needed from buildium.com/pricing</p></div><div class="expand-section"><div class="expand-label">Native tiers as published</div><ul class="tier-list"><li class="tier"><span class="tier-name ">Essential:</span> <span class="qualifier">starts at</span> $62/mo</li><li class="tier"><span class="tier-name highlighted">Growth:</span> <span class="qualifier">starts at</span> $192/mo</li><li class="tier"><span class="tier-name ">Premium:</span> <span class="qualifier">starts at</span> $400/mo</li></ul></div></div></details></div></td>
+              <td class="history"><div class="history-cell"><span class="tracking-since">Since 2026-05-21</span><span class="data-points">1 pt</span></div></td>
             </tr>
         
             <tr data-category="PM Software" data-status="public_full">
@@ -173,9 +188,8 @@
                 <span class="category-tag">PM Software</span>
               </td>
               <td><span class="badge public_full">✅ Public</span></td>
-              <td class="tiers"><div class="tier"><span class="tier-name ">Starter (≤10 units):</span> $69/mo annual ($99 monthly)</div><div class="tier"><span class="tier-name highlighted">Pro:</span> $149/mo annual ($189 monthly)</div><div class="tier"><span class="tier-name ">Premium:</span> $209/mo annual ($239 monthly)</div></td>
-              <td class="history"><div class="history-cell"><span class="tracking-since">Tracking since 2026-05-21</span><span class="data-points">1 data point</span></div></td>
-              <td class="notes">All marketed as &#x27;$3/unit&#x27;. 300+ units triggers custom quote. Promotional pricing occasionally shown (30% off + zero onboarding fee).</td>
+              <td class="pricing-cell"><div class="pricing-cell-inner"><div class="canonical-price">$149/mo (Pro)</div><div class="canonical-label">at 500 doors</div><details class="row-expand"><summary>See details</summary><div class="expand-body"><div class="expand-section"><div class="expand-label">At other sizes</div><ul class="size-breakdown-list"><li><span class="size-label">100 doors:</span> <span class="size-price">$149/mo (Pro)</span></li><li><span class="size-label">350 doors:</span> <span class="size-price">$149/mo (Pro)</span></li><li><span class="size-label">1000 doors:</span> <span class="size-price">$149/mo (Pro)</span></li></ul></div><div class="expand-section"><div class="expand-label">Native tiers as published</div><ul class="tier-list"><li class="tier"><span class="tier-name ">Starter (≤10 units):</span> $69/mo annual ($99 monthly)</li><li class="tier"><span class="tier-name highlighted">Pro:</span> $149/mo annual ($189 monthly)</li><li class="tier"><span class="tier-name ">Premium:</span> $209/mo annual ($239 monthly)</li></ul></div></div></details></div></td>
+              <td class="history"><div class="history-cell"><span class="tracking-since">Since 2026-05-21</span><span class="data-points">1 pt</span></div></td>
             </tr>
         
             <tr data-category="PM Software" data-status="public_full">
@@ -184,31 +198,28 @@
                 <span class="category-tag">PM Software</span>
               </td>
               <td><span class="badge public_full">✅ Public</span></td>
-              <td class="tiers"><div class="tier"><span class="tier-name ">Basic:</span> $1.00/unit ($250 min)</div><div class="tier"><span class="tier-name highlighted">Plus:</span> $1.50/unit ($350 min)</div><div class="tier"><span class="tier-name ">Premium:</span> $2.00/unit ($450 min)</div></td>
-              <td class="history"><div class="history-cell"><span class="tracking-since">Tracking since 2026-05-21</span><span class="data-points">1 data point</span></div></td>
-              <td class="notes">Implementation fee is 2× monthly subscription (significant). Add-ons (Maintenance Contact Center, websites, AssetProtect) are quote-only.</td>
+              <td class="pricing-cell"><div class="pricing-cell-inner"><div class="canonical-price">$750/mo</div><div class="canonical-label">at 500 doors</div><details class="row-expand"><summary>See details</summary><div class="expand-body"><div class="expand-section"><div class="expand-label">At other sizes</div><ul class="size-breakdown-list"><li><span class="size-label">100 doors:</span> <span class="size-price">$150/mo</span></li><li><span class="size-label">350 doors:</span> <span class="size-price">$525/mo</span></li><li><span class="size-label">1000 doors:</span> <span class="size-price">$1,500/mo</span></li></ul></div><div class="expand-section"><div class="expand-label">Native tiers as published</div><ul class="tier-list"><li class="tier"><span class="tier-name ">Basic:</span> $1.00/unit ($250 min)</li><li class="tier"><span class="tier-name highlighted">Plus:</span> $1.50/unit ($350 min)</li><li class="tier"><span class="tier-name ">Premium:</span> $2.00/unit ($450 min)</li></ul></div></div></details></div></td>
+              <td class="history"><div class="history-cell"><span class="tracking-since">Since 2026-05-21</span><span class="data-points">1 pt</span></div></td>
             </tr>
         
             <tr data-category="PM Software" data-status="public_partial">
               <td class="vendor">
-                <a href="https://www.rentvine.com/pricing" target="_blank" rel="noopener">Rentvine</a>
+                <a href="https://www.rentvine.com/pricing" target="_blank" rel="noopener">Rentvine</a> <span class="pending-badge">data pending</span>
                 <span class="category-tag">PM Software</span>
               </td>
               <td><span class="badge public_partial">🟡 Partial</span></td>
-              <td class="tiers"><div class="tier"><span class="tier-name ">All-Inclusive:</span> <span class="qualifier">as low as</span> $1.50/unit</div></td>
-              <td class="history"><div class="history-cell"><span class="tracking-since">Tracking since 2026-05-21</span><span class="data-points">1 data point</span></div></td>
-              <td class="notes">$199/mo minimum (per industry sources, not confirmed on page). Screening fees: $10 or 10% per applicant. Comparison chart uses &#x27;$-$$$&#x27; notation rather than exact figures for competitors.</td>
+              <td class="pricing-cell"><div class="pricing-cell-inner"><div class="canonical-price">$750/mo</div><div class="canonical-label">at 500 doors</div><details class="row-expand"><summary>See details</summary><div class="expand-body"><div class="expand-section"><div class="expand-label">At other sizes</div><ul class="size-breakdown-list"><li><span class="size-label">100 doors:</span> <span class="size-price">$150/mo</span></li><li><span class="size-label">350 doors:</span> <span class="size-price">$525/mo</span></li><li><span class="size-label">1000 doors:</span> <span class="size-price">$1,500/mo</span></li></ul></div><div class="expand-section data-pending-note"><div class="expand-label">📊 Data pending</div><p>Confirm &#x27;$1.50/unit&#x27; is true unit price, not &#x27;starts at&#x27;</p></div><div class="expand-section"><div class="expand-label">Native tiers as published</div><ul class="tier-list"><li class="tier"><span class="tier-name ">All-Inclusive:</span> <span class="qualifier">as low as</span> $1.50/unit</li></ul></div></div></details></div></td>
+              <td class="history"><div class="history-cell"><span class="tracking-since">Since 2026-05-21</span><span class="data-points">1 pt</span></div></td>
             </tr>
         
             <tr data-category="Maintenance" data-status="public_partial">
               <td class="vendor">
-                <a href="https://michaelfairbanks0.wixsite.com/mysite-3" target="_blank" rel="noopener">EZ Repair Hotline</a>
+                <a href="https://michaelfairbanks0.wixsite.com/mysite-3" target="_blank" rel="noopener">EZ Repair Hotline</a> <span class="pending-badge">data pending</span>
                 <span class="category-tag">Maintenance</span>
               </td>
               <td><span class="badge public_partial">🟡 Partial</span></td>
-              <td class="tiers"><div class="tier"><span class="tier-name ">Listed price:</span> <span class="qualifier">starts at</span> $1.49/mo</div></td>
-              <td class="history"><div class="history-cell"><span class="tracking-since">Tracking since 2026-05-21</span><span class="data-points">1 data point</span></div></td>
-              <td class="notes">Price ($1.49/mo) shown as an image on a Wix subdomain — but the page never says whether that&#x27;s per property, per unit, per call, or a flat fee. Confirm the unit basis before signing.</td>
+              <td class="pricing-cell"><div class="pricing-cell-inner"><div class="pending-label">📊 Data pending</div><div class="canonical-label">needs calculator or invoice data</div><details class="row-expand"><summary>See details</summary><div class="expand-body"><div class="expand-section data-pending-note"><div class="expand-label">📊 Data pending</div><p>Confirm $1.49/mo is per-unit (vendor doesn&#x27;t specify on Wix page)</p></div><div class="expand-section"><div class="expand-label">Native tiers as published</div><ul class="tier-list"><li class="tier"><span class="tier-name ">Listed price:</span> <span class="qualifier">starts at</span> $1.49/mo</li></ul></div></div></details></div></td>
+              <td class="history"><div class="history-cell"><span class="tracking-since">Since 2026-05-21</span><span class="data-points">1 pt</span></div></td>
             </tr>
         
             <tr data-category="Maintenance" data-status="public_full">
@@ -217,9 +228,8 @@
                 <span class="category-tag">Maintenance</span>
               </td>
               <td><span class="badge public_full">✅ Public</span></td>
-              <td class="tiers"><div class="tier"><span class="tier-name ">Core:</span> $1.60/unit</div><div class="tier"><span class="tier-name highlighted">Ops:</span> $2.00/unit</div><div class="tier"><span class="tier-name ">MAX On-Call (add-on):</span> $1.50/unit</div></td>
-              <td class="history"><div class="history-cell"><span class="tracking-since">Tracking since 2026-05-21</span><span class="data-points">1 data point</span></div></td>
-              <td class="notes">$160/mo minimum. Recommends 100+ doors. Enterprise (50,000+ units) is custom.</td>
+              <td class="pricing-cell"><div class="pricing-cell-inner"><div class="canonical-price">$1,000/mo</div><div class="canonical-label">at 500 doors</div><details class="row-expand"><summary>See details</summary><div class="expand-body"><div class="expand-section"><div class="expand-label">At other sizes</div><ul class="size-breakdown-list"><li><span class="size-label">100 doors:</span> <span class="size-price">$200/mo</span></li><li><span class="size-label">350 doors:</span> <span class="size-price">$700/mo</span></li><li><span class="size-label">1000 doors:</span> <span class="size-price">$2,000/mo</span></li></ul></div><div class="expand-section"><div class="expand-label">Native tiers as published</div><ul class="tier-list"><li class="tier"><span class="tier-name ">Core:</span> $1.60/unit</li><li class="tier"><span class="tier-name highlighted">Ops:</span> $2.00/unit</li><li class="tier"><span class="tier-name ">MAX On-Call (add-on):</span> $1.50/unit</li></ul></div></div></details></div></td>
+              <td class="history"><div class="history-cell"><span class="tracking-since">Since 2026-05-21</span><span class="data-points">1 pt</span></div></td>
             </tr>
         
             <tr data-category="Leasing" data-status="public_full">
@@ -228,9 +238,8 @@
                 <span class="category-tag">Leasing</span>
               </td>
               <td><span class="badge public_full">✅ Public</span></td>
-              <td class="tiers"><div class="tier"><span class="tier-name ">Standard:</span> $45/listing ($250/mo min)</div><div class="tier"><span class="tier-name ">Custom (2,000+ doors):</span> Contact sales</div></td>
-              <td class="history"><div class="history-cell"><span class="tracking-since">Tracking since 2026-05-21</span><span class="data-points">1 data point</span></div></td>
-              <td class="notes">Standard tier is fully priced ($45/listing + $250/mo min). One-time onboarding fee amount not visible. Custom tier for 2,000+ doors is sales-quoted (standard for enterprise tier).</td>
+              <td class="pricing-cell"><div class="pricing-cell-inner"><div class="canonical-price">$1,350/mo (~30 listings)</div><div class="canonical-label">at 500 doors</div><details class="row-expand"><summary>See details</summary><div class="expand-body"><div class="expand-section"><div class="expand-label">At other sizes</div><ul class="size-breakdown-list"><li><span class="size-label">100 doors:</span> <span class="size-price">$270/mo (~6 listings)</span></li><li><span class="size-label">350 doors:</span> <span class="size-price">$945/mo (~21 listings)</span></li><li><span class="size-label">1000 doors:</span> <span class="size-price">$2,700/mo (~60 listings)</span></li></ul></div><div class="expand-section"><div class="expand-label">Native tiers as published</div><ul class="tier-list"><li class="tier"><span class="tier-name ">Standard:</span> $45/listing ($250/mo min)</li><li class="tier"><span class="tier-name ">Custom (2,000+ doors):</span> Contact sales</li></ul></div></div></details></div></td>
+              <td class="history"><div class="history-cell"><span class="tracking-since">Since 2026-05-21</span><span class="data-points">1 pt</span></div></td>
             </tr>
         
             <tr data-category="Leasing" data-status="public_full">
@@ -239,9 +248,8 @@
                 <span class="category-tag">Leasing</span>
               </td>
               <td><span class="badge public_full">✅ Public</span></td>
-              <td class="tiers"><div class="tier"><span class="tier-name ">Pro (unit-based):</span> $1.30/unit</div><div class="tier"><span class="tier-name highlighted">Ultra (unit-based):</span> $2.70/unit</div><div class="tier"><span class="tier-name ">Pro (listing-based):</span> $50/listing</div><div class="tier"><span class="tier-name ">Ultra (listing-based):</span> $110/listing</div></td>
-              <td class="history"><div class="history-cell"><span class="tracking-since">Tracking since 2026-05-21</span><span class="data-points">1 data point</span></div></td>
-              <td class="notes">Multi-family minimum ~2,000 doors for the 70¢/door tier. MojoBox lockbox $64 one-time + $3.50/mo. Live Answer add-on from $11/week/listing.</td>
+              <td class="pricing-cell"><div class="pricing-cell-inner"><div class="canonical-price">$1,350/mo</div><div class="canonical-label">at 500 doors</div><details class="row-expand"><summary>See details</summary><div class="expand-body"><div class="expand-section"><div class="expand-label">At other sizes</div><ul class="size-breakdown-list"><li><span class="size-label">100 doors:</span> <span class="size-price">$270/mo</span></li><li><span class="size-label">350 doors:</span> <span class="size-price">$945/mo</span></li><li><span class="size-label">1000 doors:</span> <span class="size-price">$2,700/mo</span></li></ul></div><div class="expand-section"><div class="expand-label">Native tiers as published</div><ul class="tier-list"><li class="tier"><span class="tier-name ">Pro (unit-based):</span> $1.30/unit</li><li class="tier"><span class="tier-name highlighted">Ultra (unit-based):</span> $2.70/unit</li><li class="tier"><span class="tier-name ">Pro (listing-based):</span> $50/listing</li><li class="tier"><span class="tier-name ">Ultra (listing-based):</span> $110/listing</li></ul></div></div></details></div></td>
+              <td class="history"><div class="history-cell"><span class="tracking-since">Since 2026-05-21</span><span class="data-points">1 pt</span></div></td>
             </tr>
         
             <tr data-category="Leasing" data-status="public_full">
@@ -250,53 +258,18 @@
                 <span class="category-tag">Leasing</span>
               </td>
               <td><span class="badge public_full">✅ Public</span></td>
-              <td class="tiers"><div class="tier"><span class="tier-name ">Pro:</span> $1.30/unit ($65 min)</div><div class="tier"><span class="tier-name highlighted">Ultra:</span> $2.70/unit ($135 min)</div></td>
-              <td class="history"><div class="history-cell"><span class="tracking-since">Tracking since 2026-05-21</span><span class="data-points">1 data point</span></div></td>
-              <td class="notes">$19 one-time carrier registration. Lockboxes/locks fully priced (SerosBox $59+$3.50/mo, SentriLock $175+$5/mo). Messaging add-on $25/mo for 500 + 3¢ after.</td>
-            </tr>
-        
-            <tr data-category="Listings/Marketing" data-status="public_full">
-              <td class="vendor">
-                <a href="https://www.allpropertymanagement.com/about/join-our-network/" target="_blank" rel="noopener">All Property Management</a>
-                <span class="category-tag">Listings/Marketing</span>
-              </td>
-              <td><span class="badge public_full">✅ Public</span></td>
-              <td class="tiers"><div class="tier"><span class="tier-name ">Residential (Single/Condo):</span> $40–$145/lead</div><div class="tier"><span class="tier-name ">Vacation rentals:</span> $65–$70/lead</div><div class="tier"><span class="tier-name ">Associations (HOA/Condo):</span> $75–$150/lead</div><div class="tier"><span class="tier-name highlighted">Commercial:</span> $85–$135/lead</div><div class="tier"><span class="tier-name ">Specialized (parking, biotech):</span> $95–$105/lead</div></td>
-              <td class="history"><div class="history-cell"><span class="tracking-since">Tracking since 2026-05-21</span><span class="data-points">1 data point</span></div></td>
-              <td class="notes">Per-lead minimum bids vary by property type, unit count, and square footage. No monthly fees, no contracts. PMs can bid above the minimum for priority placement.</td>
-            </tr>
-        
-            <tr data-category="Listings/Marketing" data-status="public_full">
-              <td class="vendor">
-                <a href="https://www.propertymanagerwebsites.com/pricing" target="_blank" rel="noopener">PMW (Property Manager Websites)</a>
-                <span class="category-tag">Listings/Marketing</span>
-              </td>
-              <td><span class="badge public_full">✅ Public</span></td>
-              <td class="tiers"><div class="tier"><span class="tier-name ">Custom Website Setup:</span> $1,795+</div><div class="tier"><span class="tier-name ">Essentials (monthly):</span> $195/mo</div><div class="tier"><span class="tier-name highlighted">Grow (monthly):</span> $795/mo ($145 if Rentvine)</div><div class="tier"><span class="tier-name ">Premier (monthly):</span> $1,295/mo ($795 if Rentvine)</div></td>
-              <td class="history"><div class="history-cell"><span class="tracking-since">Tracking since 2026-05-21</span><span class="data-points">1 data point</span></div></td>
-              <td class="notes">Two pricing axes: site build + monthly support. Custom page add-on $795/page. Rentvine clients get steep monthly discount.</td>
-            </tr>
-        
-            <tr data-category="Listings/Marketing" data-status="bot_blocked">
-              <td class="vendor">
-                <a href="https://www.zillow.com/rental-manager/post-a-listing/" target="_blank" rel="noopener">Zillow Rental Manager</a>
-                <span class="category-tag">Listings/Marketing</span>
-              </td>
-              <td><span class="badge bot_blocked">🚫 Manual</span></td>
-              <td class="tiers"><div class="tier"><span class="tier-name ">Basic Listing:</span> Free</div><div class="tier"><span class="tier-name ">Premium Listing:</span> $29.99 / 90 days</div></td>
-              <td class="history"><div class="history-cell"><span class="tracking-since">Tracking since 2026-05-21</span><span class="data-points">1 data point</span></div></td>
-              <td class="notes">Landlord-side is mostly free (ACH rent collection included). Renter pays $35 application fee + 2.95% CC fee or $9.95 debit fee. Page blocks automated fetches — values verified manually.</td>
+              <td class="pricing-cell"><div class="pricing-cell-inner"><div class="canonical-price">$1,350/mo</div><div class="canonical-label">at 500 doors</div><details class="row-expand"><summary>See details</summary><div class="expand-body"><div class="expand-section"><div class="expand-label">At other sizes</div><ul class="size-breakdown-list"><li><span class="size-label">100 doors:</span> <span class="size-price">$270/mo</span></li><li><span class="size-label">350 doors:</span> <span class="size-price">$945/mo</span></li><li><span class="size-label">1000 doors:</span> <span class="size-price">$2,700/mo</span></li></ul></div><div class="expand-section"><div class="expand-label">Native tiers as published</div><ul class="tier-list"><li class="tier"><span class="tier-name ">Pro:</span> $1.30/unit ($65 min)</li><li class="tier"><span class="tier-name highlighted">Ultra:</span> $2.70/unit ($135 min)</li></ul></div></div></details></div></td>
+              <td class="history"><div class="history-cell"><span class="tracking-since">Since 2026-05-21</span><span class="data-points">1 pt</span></div></td>
             </tr>
         
             <tr data-category="Inspections" data-status="js_rendered">
               <td class="vendor">
-                <a href="https://zinspector.com/pricing/" target="_blank" rel="noopener">zInspector</a>
+                <a href="https://zinspector.com/pricing/" target="_blank" rel="noopener">zInspector</a> <span class="pending-badge">data pending</span>
                 <span class="category-tag">Inspections</span>
               </td>
               <td><span class="badge js_rendered">⚙️ Manual</span></td>
-              <td class="tiers"><div class="tier"><span class="tier-name ">Free:</span> $0 (≤5 properties)</div><div class="tier"><span class="tier-name ">Paid tiers:</span> ~$16–$28/mo (4 editions)</div></td>
-              <td class="history"><div class="history-cell"><span class="tracking-since">Tracking since 2026-05-21</span><span class="data-points">1 data point</span></div></td>
-              <td class="notes">15-day free trial, no CC required. Pricing table is JavaScript-rendered — exact figures triangulated from third-party sources; needs Playwright for direct scraping in V2.</td>
+              <td class="pricing-cell"><div class="pricing-cell-inner"><div class="native-pricing-label">Native pricing</div><div class="canonical-label">not normalized to per-door</div><details class="row-expand"><summary>See details</summary><div class="expand-body"><div class="expand-section data-pending-note"><div class="expand-label">📊 Data pending</div><p>Confirm tier + monthly cost from RLPMG&#x27;s current zInspector invoice</p></div><div class="expand-section"><div class="expand-label">Native tiers as published</div><ul class="tier-list"><li class="tier"><span class="tier-name ">Free:</span> $0 (≤5 properties)</li><li class="tier"><span class="tier-name ">Paid tiers:</span> ~$16–$28/mo (4 editions)</li></ul></div></div></details></div></td>
+              <td class="history"><div class="history-cell"><span class="tracking-since">Since 2026-05-21</span><span class="data-points">1 pt</span></div></td>
             </tr>
         
             <tr data-category="CRM/Workflow" data-status="public_full">
@@ -305,108 +278,58 @@
                 <span class="category-tag">CRM/Workflow</span>
               </td>
               <td><span class="badge public_full">✅ Public</span></td>
-              <td class="tiers"><div class="tier"><span class="tier-name ">Essential:</span> $40/user/mo</div><div class="tier"><span class="tier-name highlighted">Premium:</span> $80/user/mo</div><div class="tier"><span class="tier-name ">Enterprise:</span> Custom</div></td>
-              <td class="history"><div class="history-cell"><span class="tracking-since">Tracking since 2026-05-21</span><span class="data-points">1 data point</span></div></td>
-              <td class="notes">Priced per-user, not per-door — unusual in PM software and friendly to smaller teams. Monthly and annual billing both offered. Enterprise tier is custom-quoted but Essential and Premium are fully posted.</td>
+              <td class="pricing-cell"><div class="pricing-cell-inner"><div class="canonical-price">$560/mo (7 users)</div><div class="canonical-label">at 500 doors</div><details class="row-expand"><summary>See details</summary><div class="expand-body"><div class="expand-section"><div class="expand-label">At other sizes</div><ul class="size-breakdown-list"><li><span class="size-label">100 doors:</span> <span class="size-price">$160/mo (2 users)</span></li><li><span class="size-label">350 doors:</span> <span class="size-price">$400/mo (5 users)</span></li><li><span class="size-label">1000 doors:</span> <span class="size-price">$1,120/mo (14 users)</span></li></ul></div><div class="expand-section"><div class="expand-label">Native tiers as published</div><ul class="tier-list"><li class="tier"><span class="tier-name ">Essential:</span> $40/user/mo</li><li class="tier"><span class="tier-name highlighted">Premium:</span> $80/user/mo</li><li class="tier"><span class="tier-name ">Enterprise:</span> Custom</li></ul></div></div></details></div></td>
+              <td class="history"><div class="history-cell"><span class="tracking-since">Since 2026-05-21</span><span class="data-points">1 pt</span></div></td>
             </tr>
         
             <tr data-category="CRM/Workflow" data-status="public_full">
               <td class="vendor">
-                <a href="https://www.leadsimple.com/pricing" target="_blank" rel="noopener">LeadSimple</a>
+                <a href="https://www.leadsimple.com/pricing" target="_blank" rel="noopener">LeadSimple</a> <span class="pending-badge">data pending</span>
                 <span class="category-tag">CRM/Workflow</span>
               </td>
               <td><span class="badge public_full">✅ Public</span></td>
-              <td class="tiers"><div class="tier"><span class="tier-name ">Phone+Inbox Core:</span> $29/user/mo</div><div class="tier"><span class="tier-name ">Phone+Inbox Pro:</span> $59/user/mo</div><div class="tier"><span class="tier-name ">CRM:</span> $99/mo + $30/extra user</div><div class="tier"><span class="tier-name highlighted">Operations:</span> $1.35/door/mo ($200 min)</div></td>
-              <td class="history"><div class="history-cell"><span class="tracking-since">Tracking since 2026-05-21</span><span class="data-points">1 data point</span></div></td>
-              <td class="notes">Usage overages disclosed: 2.5¢/SMS, 5¢/call min. Work Order sync add-on $0.65/door/mo.</td>
-            </tr>
-        
-            <tr data-category="Communications" data-status="public_full">
-              <td class="vendor">
-                <a href="https://workspace.google.com/pricing" target="_blank" rel="noopener">Google Workspace</a>
-                <span class="category-tag">Communications</span>
-              </td>
-              <td><span class="badge public_full">✅ Public</span></td>
-              <td class="tiers"><div class="tier"><span class="tier-name ">Business Starter:</span> $7/user/mo</div><div class="tier"><span class="tier-name highlighted">Business Standard:</span> $14/user/mo</div><div class="tier"><span class="tier-name ">Business Plus:</span> $22/user/mo</div><div class="tier"><span class="tier-name ">Enterprise:</span> Contact sales</div></td>
-              <td class="history"><div class="history-cell"><span class="tracking-since">Tracking since 2026-05-21</span><span class="data-points">1 data point</span></div></td>
-              <td class="notes">Business tiers capped at 300 users. 16% discount with annual commitment. Storage: 30 GB / 2 TB / 5 TB pooled.</td>
-            </tr>
-        
-            <tr data-category="Communications" data-status="public_full">
-              <td class="vendor">
-                <a href="https://www.notion.com/pricing" target="_blank" rel="noopener">Notion</a>
-                <span class="category-tag">Communications</span>
-              </td>
-              <td><span class="badge public_full">✅ Public</span></td>
-              <td class="tiers"><div class="tier"><span class="tier-name ">Free:</span> $0</div><div class="tier"><span class="tier-name ">Plus:</span> $10/member/mo</div><div class="tier"><span class="tier-name highlighted">Business:</span> $20/member/mo</div><div class="tier"><span class="tier-name ">Enterprise:</span> Contact sales</div></td>
-              <td class="history"><div class="history-cell"><span class="tracking-since">Tracking since 2026-05-21</span><span class="data-points">1 data point</span></div></td>
-              <td class="notes">Up to 20% off with annual billing. Guests are free.</td>
-            </tr>
-        
-            <tr data-category="Communications" data-status="public_full">
-              <td class="vendor">
-                <a href="https://slack.com/pricing" target="_blank" rel="noopener">Slack</a>
-                <span class="category-tag">Communications</span>
-              </td>
-              <td><span class="badge public_full">✅ Public</span></td>
-              <td class="tiers"><div class="tier"><span class="tier-name ">Free:</span> $0</div><div class="tier"><span class="tier-name ">Pro:</span> $7.25/user/mo annual</div><div class="tier"><span class="tier-name highlighted">Business+:</span> $15/user/mo annual</div><div class="tier"><span class="tier-name ">Enterprise+:</span> Contact sales</div></td>
-              <td class="history"><div class="history-cell"><span class="tracking-since">Tracking since 2026-05-21</span><span class="data-points">1 data point</span></div></td>
-              <td class="notes">Monthly billing is higher: Pro $8.75/user, Business+ $18/user. 50% off promo for first 3 months on new workspaces.</td>
-            </tr>
-        
-            <tr data-category="Finance" data-status="public_full">
-              <td class="vendor">
-                <a href="https://gusto.com/product/pricing" target="_blank" rel="noopener">Gusto</a>
-                <span class="category-tag">Finance</span>
-              </td>
-              <td><span class="badge public_full">✅ Public</span></td>
-              <td class="tiers"><div class="tier"><span class="tier-name ">Contractor Only:</span> $0–$35/mo base + $6/contractor</div><div class="tier"><span class="tier-name ">Simple:</span> $49/mo + $6/employee</div><div class="tier"><span class="tier-name highlighted">Plus:</span> $80/mo + $12/employee</div><div class="tier"><span class="tier-name ">Premium:</span> $180/mo + $22/employee</div></td>
-              <td class="history"><div class="history-cell"><span class="tracking-since">Tracking since 2026-05-21</span><span class="data-points">1 data point</span></div></td>
-              <td class="notes">Month-to-month, no contract. Unlimited payrolls. Benefits add-ons priced separately.</td>
-            </tr>
-        
-            <tr data-category="Finance" data-status="public_full">
-              <td class="vendor">
-                <a href="https://www.pmprofitcoach.com/" target="_blank" rel="noopener">ProfitCoach</a>
-                <span class="category-tag">Finance</span>
-              </td>
-              <td><span class="badge public_full">✅ Public</span></td>
-              <td class="tiers"><div class="tier"><span class="tier-name ">ProfitDive (one-time):</span> $4,500 ($2,000 if NARPM-standards)</div><div class="tier"><span class="tier-name ">GameChanger Coaching:</span> $1,195/mo</div><div class="tier"><span class="tier-name highlighted">Boost Coaching:</span> $495/mo</div><div class="tier"><span class="tier-name ">Process Design:</span> $2,500/process</div><div class="tier"><span class="tier-name ">Process Optimization:</span> $1,500/process</div><div class="tier"><span class="tier-name ">Accounting Services:</span> Contact for quote</div></td>
-              <td class="history"><div class="history-cell"><span class="tracking-since">Tracking since 2026-05-21</span><span class="data-points">1 data point</span></div></td>
-              <td class="notes">Surprisingly transparent for a high-touch PM consulting firm.</td>
-            </tr>
-        
-            <tr data-category="Finance" data-status="public_full">
-              <td class="vendor">
-                <a href="https://quickbooks.intuit.com/pricing/" target="_blank" rel="noopener">QuickBooks Online</a>
-                <span class="category-tag">Finance</span>
-              </td>
-              <td><span class="badge public_full">✅ Public</span></td>
-              <td class="tiers"><div class="tier"><span class="tier-name ">Simple Start:</span> $38/mo</div><div class="tier"><span class="tier-name ">Essentials:</span> $75/mo</div><div class="tier"><span class="tier-name highlighted">Plus:</span> $115/mo</div><div class="tier"><span class="tier-name ">Advanced:</span> $275/mo</div></td>
-              <td class="history"><div class="history-cell"><span class="tracking-since">Tracking since 2026-05-21</span><span class="data-points">1 data point</span></div></td>
-              <td class="notes">Post-July 2025 price increase. User caps: 1 / 3 / 5 / 25. 50%-off-for-3-months promo typically shown. Payroll, Payments, Live Bookkeeping are add-ons.</td>
-            </tr>
-        
-            <tr data-category="Finance" data-status="public_full">
-              <td class="vendor">
-                <a href="https://www.xero.com/us/pricing-plans/" target="_blank" rel="noopener">Xero</a>
-                <span class="category-tag">Finance</span>
-              </td>
-              <td><span class="badge public_full">✅ Public</span></td>
-              <td class="tiers"><div class="tier"><span class="tier-name ">Early:</span> $25/mo (20 invoices, 5 bills cap)</div><div class="tier"><span class="tier-name highlighted">Growing:</span> $55/mo (unlimited)</div><div class="tier"><span class="tier-name ">Established:</span> $90/mo (+ multi-currency, projects, analytics)</div></td>
-              <td class="history"><div class="history-cell"><span class="tracking-since">Tracking since 2026-05-21</span><span class="data-points">1 data point</span></div></td>
-              <td class="notes">First month free. Gusto payroll integration separate ($80–$260+/mo).</td>
+              <td class="pricing-cell"><div class="pricing-cell-inner"><div class="canonical-price">$675/mo</div><div class="canonical-label">at 500 doors</div><details class="row-expand"><summary>See details</summary><div class="expand-body"><div class="expand-section"><div class="expand-label">At other sizes</div><ul class="size-breakdown-list"><li><span class="size-label">100 doors:</span> <span class="size-price">$135/mo</span></li><li><span class="size-label">350 doors:</span> <span class="size-price">$473/mo</span></li><li><span class="size-label">1000 doors:</span> <span class="size-price">$1,350/mo</span></li></ul></div><div class="expand-section data-pending-note"><div class="expand-label">📊 Data pending</div><p>Hybrid pricing model — Operations tier is per-door, others per-user. Normalizing using Operations tier.</p></div><div class="expand-section"><div class="expand-label">Native tiers as published</div><ul class="tier-list"><li class="tier"><span class="tier-name ">Phone+Inbox Core:</span> $29/user/mo</li><li class="tier"><span class="tier-name ">Phone+Inbox Pro:</span> $59/user/mo</li><li class="tier"><span class="tier-name ">CRM:</span> $99/mo + $30/extra user</li><li class="tier"><span class="tier-name highlighted">Operations:</span> $1.35/door/mo ($200 min)</li></ul></div></div></details></div></td>
+              <td class="history"><div class="history-cell"><span class="tracking-since">Since 2026-05-21</span><span class="data-points">1 pt</span></div></td>
             </tr>
         
             <tr data-category="Payments" data-status="public_partial">
               <td class="vendor">
-                <a href="https://www.boompay.app/" target="_blank" rel="noopener">Boom</a>
+                <a href="https://www.boompay.app/" target="_blank" rel="noopener">Boom</a> <span class="pending-badge">data pending</span>
                 <span class="category-tag">Payments</span>
               </td>
               <td><span class="badge public_partial">🟡 Partial</span></td>
-              <td class="tiers"><div class="tier"><span class="tier-name ">BoomScreen (Tenant Screening):</span> PM sets applicant price</div><div class="tier"><span class="tier-name ">BoomReport (Rent Reporting):</span> At-cost or pass-through to renter</div></td>
-              <td class="history"><div class="history-cell"><span class="tracking-since">Tracking since 2026-05-21</span><span class="data-points">1 data point</span></div></td>
-              <td class="notes">No tiered pricing. Pay-per-usage. PMs set application fees and rent-reporting pricing at the property level. Exact at-cost numbers not posted publicly.</td>
+              <td class="pricing-cell"><div class="pricing-cell-inner"><div class="variable-label">Per-event</div><div class="canonical-label">cost depends on volume</div><details class="row-expand"><summary>See details</summary><div class="expand-body"><div class="expand-section data-pending-note"><div class="expand-label">📊 Data pending</div><p>Need per-screening and per-unit/mo rates for BoomScreen and BoomReport</p></div><div class="expand-section"><div class="expand-label">Native tiers as published</div><ul class="tier-list"><li class="tier"><span class="tier-name ">BoomScreen (Tenant Screening):</span> PM sets applicant price</li><li class="tier"><span class="tier-name ">BoomReport (Rent Reporting):</span> At-cost or pass-through to renter</li></ul></div></div></details></div></td>
+              <td class="history"><div class="history-cell"><span class="tracking-since">Since 2026-05-21</span><span class="data-points">1 pt</span></div></td>
+            </tr>
+        
+            <tr data-category="Lead Generation" data-status="public_full">
+              <td class="vendor">
+                <a href="https://www.allpropertymanagement.com/about/join-our-network/" target="_blank" rel="noopener">All Property Management</a>
+                <span class="category-tag">Lead Generation</span>
+              </td>
+              <td><span class="badge public_full">✅ Public</span></td>
+              <td class="pricing-cell"><div class="pricing-cell-inner"><div class="variable-label">Per-lead</div><div class="canonical-label">cost depends on lead volume</div><details class="row-expand"><summary>See details</summary><div class="expand-body"><div class="expand-section"><div class="expand-label">Native tiers as published</div><ul class="tier-list"><li class="tier"><span class="tier-name ">Residential (Single/Condo):</span> $40–$145/lead</li><li class="tier"><span class="tier-name ">Vacation rentals:</span> $65–$70/lead</li><li class="tier"><span class="tier-name ">Associations (HOA/Condo):</span> $75–$150/lead</li><li class="tier"><span class="tier-name highlighted">Commercial:</span> $85–$135/lead</li><li class="tier"><span class="tier-name ">Specialized (parking, biotech):</span> $95–$105/lead</li></ul></div></div></details></div></td>
+              <td class="history"><div class="history-cell"><span class="tracking-since">Since 2026-05-21</span><span class="data-points">1 pt</span></div></td>
+            </tr>
+        
+            <tr data-category="Listings Marketplaces" data-status="bot_blocked">
+              <td class="vendor">
+                <a href="https://www.zillow.com/rental-manager/post-a-listing/" target="_blank" rel="noopener">Zillow Rental Manager</a>
+                <span class="category-tag">Listings Marketplaces</span>
+              </td>
+              <td><span class="badge bot_blocked">🚫 Manual</span></td>
+              <td class="pricing-cell"><div class="pricing-cell-inner"><div class="variable-label">Variable</div><div class="canonical-label">different price per customer</div><details class="row-expand"><summary>See details</summary><div class="expand-body"><div class="expand-section"><div class="expand-label">Native tiers as published</div><ul class="tier-list"><li class="tier"><span class="tier-name ">Basic Listing:</span> Free</li><li class="tier"><span class="tier-name ">Premium Listing:</span> $29.99 / 90 days</li></ul></div></div></details></div></td>
+              <td class="history"><div class="history-cell"><span class="tracking-since">Since 2026-05-21</span><span class="data-points">1 pt</span></div></td>
+            </tr>
+        
+            <tr data-category="Sales &amp; Marketing Services" data-status="public_full">
+              <td class="vendor">
+                <a href="https://www.propertymanagerwebsites.com/pricing" target="_blank" rel="noopener">PMW (Property Manager Websites)</a>
+                <span class="category-tag">Sales &amp; Marketing Services</span>
+              </td>
+              <td><span class="badge public_full">✅ Public</span></td>
+              <td class="pricing-cell"><div class="pricing-cell-inner"><div class="native-pricing-label">Native pricing</div><div class="canonical-label">not normalized to per-door</div><details class="row-expand"><summary>See details</summary><div class="expand-body"><div class="expand-section"><div class="expand-label">Native tiers as published</div><ul class="tier-list"><li class="tier"><span class="tier-name ">Custom Website Setup:</span> $1,795+</li><li class="tier"><span class="tier-name ">Essentials (monthly):</span> $195/mo</li><li class="tier"><span class="tier-name highlighted">Grow (monthly):</span> $795/mo ($145 if Rentvine)</li><li class="tier"><span class="tier-name ">Premier (monthly):</span> $1,295/mo ($795 if Rentvine)</li></ul></div></div></details></div></td>
+              <td class="history"><div class="history-cell"><span class="tracking-since">Since 2026-05-21</span><span class="data-points">1 pt</span></div></td>
             </tr>
         
             <tr data-category="Industry Association" data-status="public_full">
@@ -415,9 +338,78 @@
                 <span class="category-tag">Industry Association</span>
               </td>
               <td><span class="badge public_full">✅ Public</span></td>
-              <td class="tiers"><div class="tier"><span class="tier-name ">Professional Individual:</span> $320/yr ($270 first year)</div><div class="tier"><span class="tier-name ">Support Staff:</span> $175/yr ($125 first year)</div><div class="tier"><span class="tier-name ">National Affiliate:</span> $320/yr ($270 first year)</div><div class="tier"><span class="tier-name ">Company Membership:</span> $760 base + $125/extra member</div><div class="tier"><span class="tier-name ">Broker/Owner Conference:</span> 🔒 Hidden (Cvent portal)</div></td>
-              <td class="history"><div class="history-cell"><span class="tracking-since">Tracking since 2026-05-21</span><span class="data-points">1 data point</span></div></td>
-              <td class="notes">$50 new-member discount applies first year. Local chapter dues are separate. Broker/Owner 2026 in New Orleans (Apr 27–30) — registration fees not posted publicly.</td>
+              <td class="pricing-cell"><div class="pricing-cell-inner"><div class="native-pricing-label">Native pricing</div><div class="canonical-label">not normalized to per-door</div><details class="row-expand"><summary>See details</summary><div class="expand-body"><div class="expand-section"><div class="expand-label">Native tiers as published</div><ul class="tier-list"><li class="tier"><span class="tier-name ">Professional Individual:</span> $320/yr ($270 first year)</li><li class="tier"><span class="tier-name ">Support Staff:</span> $175/yr ($125 first year)</li><li class="tier"><span class="tier-name ">National Affiliate:</span> $320/yr ($270 first year)</li><li class="tier"><span class="tier-name ">Company Membership:</span> $760 base + $125/extra member</li><li class="tier"><span class="tier-name ">Broker/Owner Conference:</span> 🔒 Hidden (Cvent portal)</li></ul></div></div></details></div></td>
+              <td class="history"><div class="history-cell"><span class="tracking-since">Since 2026-05-21</span><span class="data-points">1 pt</span></div></td>
+            </tr>
+        
+            <tr data-category="Business Tools" data-status="public_full">
+              <td class="vendor">
+                <a href="https://workspace.google.com/pricing" target="_blank" rel="noopener">Google Workspace</a>
+                <span class="category-tag">Business Tools</span>
+              </td>
+              <td><span class="badge public_full">✅ Public</span></td>
+              <td class="pricing-cell"><div class="pricing-cell-inner"><div class="native-pricing-label">Native pricing</div><div class="canonical-label">not normalized to per-door</div><details class="row-expand"><summary>See details</summary><div class="expand-body"><div class="expand-section"><div class="expand-label">Native tiers as published</div><ul class="tier-list"><li class="tier"><span class="tier-name ">Business Starter:</span> $7/user/mo</li><li class="tier"><span class="tier-name highlighted">Business Standard:</span> $14/user/mo</li><li class="tier"><span class="tier-name ">Business Plus:</span> $22/user/mo</li><li class="tier"><span class="tier-name ">Enterprise:</span> Contact sales</li></ul></div></div></details></div></td>
+              <td class="history"><div class="history-cell"><span class="tracking-since">Since 2026-05-21</span><span class="data-points">1 pt</span></div></td>
+            </tr>
+        
+            <tr data-category="Business Tools" data-status="public_full">
+              <td class="vendor">
+                <a href="https://gusto.com/product/pricing" target="_blank" rel="noopener">Gusto</a>
+                <span class="category-tag">Business Tools</span>
+              </td>
+              <td><span class="badge public_full">✅ Public</span></td>
+              <td class="pricing-cell"><div class="pricing-cell-inner"><div class="native-pricing-label">Native pricing</div><div class="canonical-label">not normalized to per-door</div><details class="row-expand"><summary>See details</summary><div class="expand-body"><div class="expand-section"><div class="expand-label">Native tiers as published</div><ul class="tier-list"><li class="tier"><span class="tier-name ">Contractor Only:</span> $0–$35/mo base + $6/contractor</li><li class="tier"><span class="tier-name ">Simple:</span> $49/mo + $6/employee</li><li class="tier"><span class="tier-name highlighted">Plus:</span> $80/mo + $12/employee</li><li class="tier"><span class="tier-name ">Premium:</span> $180/mo + $22/employee</li></ul></div></div></details></div></td>
+              <td class="history"><div class="history-cell"><span class="tracking-since">Since 2026-05-21</span><span class="data-points">1 pt</span></div></td>
+            </tr>
+        
+            <tr data-category="Business Tools" data-status="public_full">
+              <td class="vendor">
+                <a href="https://www.notion.com/pricing" target="_blank" rel="noopener">Notion</a>
+                <span class="category-tag">Business Tools</span>
+              </td>
+              <td><span class="badge public_full">✅ Public</span></td>
+              <td class="pricing-cell"><div class="pricing-cell-inner"><div class="native-pricing-label">Native pricing</div><div class="canonical-label">not normalized to per-door</div><details class="row-expand"><summary>See details</summary><div class="expand-body"><div class="expand-section"><div class="expand-label">Native tiers as published</div><ul class="tier-list"><li class="tier"><span class="tier-name ">Free:</span> $0</li><li class="tier"><span class="tier-name ">Plus:</span> $10/member/mo</li><li class="tier"><span class="tier-name highlighted">Business:</span> $20/member/mo</li><li class="tier"><span class="tier-name ">Enterprise:</span> Contact sales</li></ul></div></div></details></div></td>
+              <td class="history"><div class="history-cell"><span class="tracking-since">Since 2026-05-21</span><span class="data-points">1 pt</span></div></td>
+            </tr>
+        
+            <tr data-category="Business Tools" data-status="public_full">
+              <td class="vendor">
+                <a href="https://www.pmprofitcoach.com/" target="_blank" rel="noopener">ProfitCoach</a>
+                <span class="category-tag">Business Tools</span>
+              </td>
+              <td><span class="badge public_full">✅ Public</span></td>
+              <td class="pricing-cell"><div class="pricing-cell-inner"><div class="native-pricing-label">Native pricing</div><div class="canonical-label">not normalized to per-door</div><details class="row-expand"><summary>See details</summary><div class="expand-body"><div class="expand-section"><div class="expand-label">Native tiers as published</div><ul class="tier-list"><li class="tier"><span class="tier-name ">ProfitDive (one-time):</span> $4,500 ($2,000 if NARPM-standards)</li><li class="tier"><span class="tier-name ">GameChanger Coaching:</span> $1,195/mo</li><li class="tier"><span class="tier-name highlighted">Boost Coaching:</span> $495/mo</li><li class="tier"><span class="tier-name ">Process Design:</span> $2,500/process</li><li class="tier"><span class="tier-name ">Process Optimization:</span> $1,500/process</li><li class="tier"><span class="tier-name ">Accounting Services:</span> Contact for quote</li></ul></div></div></details></div></td>
+              <td class="history"><div class="history-cell"><span class="tracking-since">Since 2026-05-21</span><span class="data-points">1 pt</span></div></td>
+            </tr>
+        
+            <tr data-category="Business Tools" data-status="public_full">
+              <td class="vendor">
+                <a href="https://quickbooks.intuit.com/pricing/" target="_blank" rel="noopener">QuickBooks Online</a>
+                <span class="category-tag">Business Tools</span>
+              </td>
+              <td><span class="badge public_full">✅ Public</span></td>
+              <td class="pricing-cell"><div class="pricing-cell-inner"><div class="native-pricing-label">Native pricing</div><div class="canonical-label">not normalized to per-door</div><details class="row-expand"><summary>See details</summary><div class="expand-body"><div class="expand-section"><div class="expand-label">Native tiers as published</div><ul class="tier-list"><li class="tier"><span class="tier-name ">Simple Start:</span> $38/mo</li><li class="tier"><span class="tier-name ">Essentials:</span> $75/mo</li><li class="tier"><span class="tier-name highlighted">Plus:</span> $115/mo</li><li class="tier"><span class="tier-name ">Advanced:</span> $275/mo</li></ul></div></div></details></div></td>
+              <td class="history"><div class="history-cell"><span class="tracking-since">Since 2026-05-21</span><span class="data-points">1 pt</span></div></td>
+            </tr>
+        
+            <tr data-category="Business Tools" data-status="public_full">
+              <td class="vendor">
+                <a href="https://slack.com/pricing" target="_blank" rel="noopener">Slack</a>
+                <span class="category-tag">Business Tools</span>
+              </td>
+              <td><span class="badge public_full">✅ Public</span></td>
+              <td class="pricing-cell"><div class="pricing-cell-inner"><div class="native-pricing-label">Native pricing</div><div class="canonical-label">not normalized to per-door</div><details class="row-expand"><summary>See details</summary><div class="expand-body"><div class="expand-section"><div class="expand-label">Native tiers as published</div><ul class="tier-list"><li class="tier"><span class="tier-name ">Free:</span> $0</li><li class="tier"><span class="tier-name ">Pro:</span> $7.25/user/mo annual</li><li class="tier"><span class="tier-name highlighted">Business+:</span> $15/user/mo annual</li><li class="tier"><span class="tier-name ">Enterprise+:</span> Contact sales</li></ul></div></div></details></div></td>
+              <td class="history"><div class="history-cell"><span class="tracking-since">Since 2026-05-21</span><span class="data-points">1 pt</span></div></td>
+            </tr>
+        
+            <tr data-category="Business Tools" data-status="public_full">
+              <td class="vendor">
+                <a href="https://www.xero.com/us/pricing-plans/" target="_blank" rel="noopener">Xero</a>
+                <span class="category-tag">Business Tools</span>
+              </td>
+              <td><span class="badge public_full">✅ Public</span></td>
+              <td class="pricing-cell"><div class="pricing-cell-inner"><div class="native-pricing-label">Native pricing</div><div class="canonical-label">not normalized to per-door</div><details class="row-expand"><summary>See details</summary><div class="expand-body"><div class="expand-section"><div class="expand-label">Native tiers as published</div><ul class="tier-list"><li class="tier"><span class="tier-name ">Early:</span> $25/mo (20 invoices, 5 bills cap)</li><li class="tier"><span class="tier-name highlighted">Growing:</span> $55/mo (unlimited)</li><li class="tier"><span class="tier-name ">Established:</span> $90/mo (+ multi-currency, projects, analytics)</li></ul></div></div></details></div></td>
+              <td class="history"><div class="history-cell"><span class="tracking-since">Since 2026-05-21</span><span class="data-points">1 pt</span></div></td>
             </tr>
         
         </tbody>
@@ -431,7 +423,7 @@
   <div class="container">
     <h3 id="methodology">How this works</h3>
     <p>Every Monday, an automated job visits each public pricing page, snapshots it, and compares it to the previous week. Any change — a new tier, a price increase, a removed plan — is committed to this repo. The full pricing history lives in the git log and in each vendor's <code>price_history</code> record.</p>
-    <p>For vendors with gated pricing, we monitor Reddit (r/PropertyManagement, r/realestateinvesting, r/Landlord, r/RealEstate) for operator-reported numbers, and pull pricing context from AppFolio's quarterly earnings calls (they're publicly traded on NASDAQ as APPF).</p>
+    <p>For vendors with gated pricing, we monitor Reddit (r/PropertyManagement, r/realestateinvesting, r/Landlord, r/RealEstate) for operator-reported numbers, and pull pricing context from AppFolio's quarterly earnings calls (NASDAQ: APPF).</p>
     <p><strong>Classification framework:</strong> Hall of Shame = zero pricing visible publicly. A &#x27;Custom Enterprise&#x27; tier alongside listed prices is a footnote, not shame.</p>
     <p><strong>This is not vendor-confirmed pricing.</strong> Always validate with the vendor before signing.</p>
     <p><strong>Spotted an error or a price change?</strong> Open an issue on the repo and we update as soon as we can verify.</p>

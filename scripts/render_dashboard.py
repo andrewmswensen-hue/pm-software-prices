@@ -2,15 +2,13 @@
 """
 render_dashboard.py — Build the live HTML dashboard at docs/index.html.
 
-Reads data/vendors.json and produces a clean, mobile-friendly static page that
-can be served by GitHub Pages from the /docs folder. The page includes:
-  - Header + transparency scorecard
-  - Recent Notable Changes (auto-derived from price_history diffs)
-  - Hall of Shame (vendors with zero pricing visible publicly)
-  - Filterable, sortable table of all vendors with tracking-since indicators
+v1.2: Restructured to lead with "Cost at 500 doors" canonical price plus an
+expandable per-size breakdown (100 / 350 / 1000). Native-pricing vendors
+(Slack, Notion, etc.) show their published tiers without door normalization.
+Vendors needing follow-up data are flagged with a "data pending" marker.
 
-The dashboard is fully static — no fetches, no build tools, no JS framework.
-Tiny inline JS handles category filtering only.
+Reads data/vendors.json. Pure static output, no fetches or JS frameworks.
+HTML <details> elements handle the row expansion without custom JS.
 
 Run:  python scripts/render_dashboard.py
 """
@@ -33,22 +31,31 @@ STATUS_LABELS = {
     "bot_blocked": ("🚫", "Manual"),
 }
 
+# Order categories appear on the dashboard
 CATEGORY_ORDER = [
-    "PM Software", "Maintenance", "Leasing", "Resident Benefits",
-    "Listings/Marketing", "Inspections", "CRM/Workflow",
-    "Communications", "Finance", "Payments", "Industry Association",
+    "PM Software",
+    "Maintenance",
+    "Leasing",
+    "Resident Benefits",
+    "Inspections",
+    "CRM/Workflow",
+    "Payments",
+    "Lead Generation",
+    "Listings Marketplaces",
+    "Sales & Marketing Services",
+    "Industry Association",
+    "Business Tools",
 ]
 
 
 def esc(s):
-    if s is None:
-        return ""
-    return html.escape(str(s))
+    return html.escape(str(s)) if s is not None else ""
 
 
-def render_tiers(tiers):
+def render_tiers_list(tiers):
+    """Render a vendor's full tier list as HTML."""
     if not tiers:
-        return '<span style="color:#78716c">—</span>'
+        return '<span style="color:#78716c">No tier data</span>'
     parts = []
     for t in tiers:
         name = esc(t.get("name", ""))
@@ -57,62 +64,137 @@ def render_tiers(tiers):
         highlighted = "highlighted" if t.get("highlighted") else ""
         if qualifier:
             parts.append(
-                f'<div class="tier"><span class="tier-name {highlighted}">{name}:</span> '
-                f'<span class="qualifier">{qualifier}</span> {price}</div>'
+                f'<li class="tier"><span class="tier-name {highlighted}">{name}:</span> '
+                f'<span class="qualifier">{qualifier}</span> {price}</li>'
             )
         else:
             parts.append(
-                f'<div class="tier"><span class="tier-name {highlighted}">{name}:</span> {price}</div>'
+                f'<li class="tier"><span class="tier-name {highlighted}">{name}:</span> {price}</li>'
             )
-    return "".join(parts)
+    return '<ul class="tier-list">' + "".join(parts) + "</ul>"
+
+
+def render_size_breakdown(normalized: dict, canonical_size: int):
+    """Render the 100/350/1000 breakdown (excluding the canonical size which is shown
+    separately)."""
+    if not normalized:
+        return ""
+    parts = []
+    for size_str in sorted(normalized.keys(), key=int):
+        size = int(size_str)
+        if size == canonical_size:
+            continue
+        val = normalized.get(size_str) or "(no data)"
+        parts.append(
+            f'<li><span class="size-label">{size} doors:</span> <span class="size-price">{esc(val)}</span></li>'
+        )
+    if not parts:
+        return ""
+    return '<ul class="size-breakdown-list">' + "".join(parts) + "</ul>"
+
+
+def render_pricing_cell(vendor: dict, canonical_size: int) -> str:
+    """The big new column. Format depends on pricing_unit:
+       - Normalizable units: big canonical price + expand
+       - native_only: native tier list
+       - variable: variable label + expand
+       - starts_at / data_pending: pending marker + expand showing partial info
+    """
+    pricing_unit = vendor.get("pricing_unit")
+    normalized = vendor.get("normalized_pricing") or {}
+    canonical = normalized.get(str(canonical_size))
+    data_pending = vendor.get("data_pending")
+    tiers = vendor.get("tiers", [])
+
+    # Build the expand section common to all rows
+    expand_inner = ""
+    if normalized:
+        expand_inner += '<div class="expand-section"><div class="expand-label">At other sizes</div>'
+        expand_inner += render_size_breakdown(normalized, canonical_size)
+        expand_inner += "</div>"
+    if data_pending:
+        expand_inner += (
+            '<div class="expand-section data-pending-note">'
+            f'<div class="expand-label">📊 Data pending</div>'
+            f'<p>{esc(data_pending)}</p>'
+            '</div>'
+        )
+    if tiers:
+        expand_inner += (
+            '<div class="expand-section">'
+            '<div class="expand-label">Native tiers as published</div>'
+            f'{render_tiers_list(tiers)}'
+            '</div>'
+        )
+
+    expand_html = ""
+    if expand_inner:
+        expand_html = (
+            '<details class="row-expand">'
+            '<summary>See details</summary>'
+            f'<div class="expand-body">{expand_inner}</div>'
+            '</details>'
+        )
+
+    # Build the headline content
+    if canonical:
+        primary = (
+            f'<div class="canonical-price">{esc(canonical)}</div>'
+            f'<div class="canonical-label">at {canonical_size} doors</div>'
+        )
+    elif pricing_unit == "native_only":
+        # No door normalization; show native pricing inline as the primary view
+        primary = (
+            '<div class="native-pricing-label">Native pricing</div>'
+            '<div class="canonical-label">not normalized to per-door</div>'
+        )
+    elif pricing_unit == "variable":
+        primary = (
+            '<div class="variable-label">Variable</div>'
+            '<div class="canonical-label">different price per customer</div>'
+        )
+    elif pricing_unit == "per_lead":
+        primary = (
+            '<div class="variable-label">Per-lead</div>'
+            '<div class="canonical-label">cost depends on lead volume</div>'
+        )
+    elif pricing_unit == "per_event":
+        primary = (
+            '<div class="variable-label">Per-event</div>'
+            '<div class="canonical-label">cost depends on volume</div>'
+        )
+    elif pricing_unit == "starts_at" or data_pending:
+        primary = (
+            '<div class="pending-label">📊 Data pending</div>'
+            '<div class="canonical-label">needs calculator or invoice data</div>'
+        )
+    else:
+        primary = '<div class="canonical-label">(no pricing data)</div>'
+
+    return f'<div class="pricing-cell-inner">{primary}{expand_html}</div>'
 
 
 def compute_recent_changes(vendors):
-    """Look at each vendor's price_history. If it has 2+ entries, compute the diff
-    between the most recent and the prior entry. Return a sorted list of changes."""
     changes = []
     for v in vendors:
         history = v.get("price_history", [])
         if len(history) < 2:
             continue
-        prev_entry = history[-2]
-        curr_entry = history[-1]
-        prev_tiers = prev_entry.get("tiers", {})
-        curr_tiers = curr_entry.get("tiers", {})
-
-        for tier_name, new_price in curr_tiers.items():
-            old_price = prev_tiers.get(tier_name)
+        prev = history[-2].get("tiers", {})
+        curr = history[-1].get("tiers", {})
+        date = history[-1]["date"]
+        for tier_name, new_price in curr.items():
+            old_price = prev.get(tier_name)
             if old_price is None:
-                changes.append({
-                    "date": curr_entry["date"],
-                    "vendor": v["name"],
-                    "pricing_url": v.get("pricing_url", ""),
-                    "kind": "tier_added",
-                    "tier": tier_name,
-                    "new": new_price,
-                })
+                changes.append({"date": date, "vendor": v["name"], "kind": "tier_added",
+                                "tier": tier_name, "new": new_price, "url": v.get("pricing_url", "")})
             elif old_price != new_price:
-                changes.append({
-                    "date": curr_entry["date"],
-                    "vendor": v["name"],
-                    "pricing_url": v.get("pricing_url", ""),
-                    "kind": "price_changed",
-                    "tier": tier_name,
-                    "old": old_price,
-                    "new": new_price,
-                })
-
-        for tier_name, old_price in prev_tiers.items():
-            if tier_name not in curr_tiers:
-                changes.append({
-                    "date": curr_entry["date"],
-                    "vendor": v["name"],
-                    "pricing_url": v.get("pricing_url", ""),
-                    "kind": "tier_removed",
-                    "tier": tier_name,
-                    "old": old_price,
-                })
-
+                changes.append({"date": date, "vendor": v["name"], "kind": "price_changed",
+                                "tier": tier_name, "old": old_price, "new": new_price, "url": v.get("pricing_url", "")})
+        for tier_name, old_price in prev.items():
+            if tier_name not in curr:
+                changes.append({"date": date, "vendor": v["name"], "kind": "tier_removed",
+                                "tier": tier_name, "old": old_price, "url": v.get("pricing_url", "")})
     changes.sort(key=lambda c: c["date"], reverse=True)
     return changes
 
@@ -128,30 +210,27 @@ def render_recent_changes(changes, total_trackable, tracking_start):
       </div>
     </section>
         '''
-
     items_html = []
-    for c in changes[:10]:  # cap at 10 most recent
+    for c in changes[:10]:
         if c["kind"] == "price_changed":
             badge = '<span class="change-badge price">Price change</span>'
-            body = f'<strong>{esc(c["tier"])}</strong>: <span class="old-price">{esc(c["old"])}</span> → <span class="new-price">{esc(c["new"])}</span>'
+            body = f'<strong>{esc(c["tier"])}</strong>: <span class="old-price">{esc(c["old"])}</span> &rarr; <span class="new-price">{esc(c["new"])}</span>'
         elif c["kind"] == "tier_added":
             badge = '<span class="change-badge added">New tier</span>'
             body = f'<strong>{esc(c["tier"])}</strong>: {esc(c["new"])}'
-        else:  # tier_removed
+        else:
             badge = '<span class="change-badge removed">Tier removed</span>'
             body = f'<strong>{esc(c["tier"])}</strong> (was {esc(c["old"])})'
-
         items_html.append(f'''
         <li class="change-item">
           <div class="change-date">{esc(c["date"])}</div>
           <div class="change-body">
-            <a href="{esc(c["pricing_url"])}" target="_blank" rel="noopener" class="change-vendor">{esc(c["vendor"])}</a>
+            <a href="{esc(c["url"])}" target="_blank" rel="noopener" class="change-vendor">{esc(c["vendor"])}</a>
             {badge}
             <div class="change-detail">{body}</div>
           </div>
         </li>
         ''')
-
     return f'''
     <section id="recent-changes">
       <h2>📈 Recent Notable Changes</h2>
@@ -163,16 +242,41 @@ def render_recent_changes(changes, total_trackable, tracking_start):
     '''
 
 
+def render_methodology(assumptions, note):
+    return f'''
+    <section id="methodology-section" class="methodology-card">
+      <h2>🧮 How "Cost at 500 doors" is calculated</h2>
+      <p class="section-desc">
+        For vendors who price per door or per unit, we multiply by 500. For vendors who price by user, listing, or other unit, we apply standard assumptions to convert to a comparable monthly number. Numbers are best-effort, not vendor-confirmed quotes.
+      </p>
+      <ul class="assumptions-list">
+        <li><strong>Canonical company size:</strong> {assumptions["canonical_size"]} doors</li>
+        <li><strong>Breakdown sizes also shown:</strong> {", ".join(str(s) for s in assumptions["size_breakdown"])} doors</li>
+        <li><strong>Default occupancy:</strong> {int(assumptions["occupancy"]*100)}%</li>
+        <li><strong>Active listings at any time:</strong> {int(assumptions["active_listing_ratio"]*100)}% of vacancies</li>
+        <li><strong>Users per door (for per-user pricing):</strong> 1 user per {assumptions["doors_per_user"]} doors</li>
+      </ul>
+      <p class="assumptions-note">{esc(note)}</p>
+    </section>
+    '''
+
+
 def render():
     with open(VENDORS_FILE) as f:
         data = json.load(f)
 
     vendors = data["vendors"]
     meta = data["metadata"]
+    assumptions = meta.get("normalization_defaults", {})
+    canonical_size = assumptions.get("canonical_size", 500)
+    methodology_note = meta.get("normalization_note", "")
 
     counts = defaultdict(int)
+    pending = 0
     for v in vendors:
         counts[v["status"]] += 1
+        if v.get("data_pending"):
+            pending += 1
 
     total = len(vendors)
     public_full = counts.get("public_full", 0)
@@ -181,7 +285,6 @@ def render():
     manual = counts.get("js_rendered", 0) + counts.get("bot_blocked", 0)
     total_trackable = total - gated
 
-    # Earliest tracking_since date
     tracking_dates = [v.get("tracking_since") for v in vendors if v.get("tracking_since")]
     tracking_start = min(tracking_dates) if tracking_dates else meta["last_updated"]
 
@@ -190,21 +293,20 @@ def render():
 
     recent_changes = compute_recent_changes(vendors)
     recent_changes_html = render_recent_changes(recent_changes, total_trackable, tracking_start)
+    methodology_html = render_methodology(assumptions, methodology_note)
 
+    # Categories present (excluding gated which is in Hall of Shame)
     categories_present = sorted(
         {v["category"] for v in vendors if v["status"] != "gated"},
         key=lambda c: CATEGORY_ORDER.index(c) if c in CATEGORY_ORDER else 99,
     )
 
-    # Hall of Shame cards
+    # Shame cards
     shame_cards_html = []
     for v in shamed:
         intel_html = ""
         if v.get("third_party_intel"):
-            intel_html = (
-                f'<p class="intel"><strong>What operators report:</strong> '
-                f'{esc(v["third_party_intel"])}</p>'
-            )
+            intel_html = f'<p class="intel"><strong>What operators report:</strong> {esc(v["third_party_intel"])}</p>'
         shame_line = v.get("shame_line", "")
         card = f'''
             <div class="shame-card">
@@ -227,21 +329,29 @@ def render():
     table_rows_html = []
     for v in non_gated:
         emoji, label = STATUS_LABELS.get(v["status"], ("", v["status"]))
-        notes_html = esc(v.get("notes", "")) if v.get("notes") else ""
-        tracking_since = v.get("tracking_since", "")
+        pending_badge = ""
+        if v.get("data_pending"):
+            pending_badge = ' <span class="pending-badge">data pending</span>'
         history_count = len(v.get("price_history", []))
-        history_cell = f'<div class="history-cell"><span class="tracking-since">Tracking since {esc(tracking_since)}</span><span class="data-points">{history_count} data point{"s" if history_count != 1 else ""}</span></div>'
+        tracking_since = v.get("tracking_since", "")
+        history_cell = (
+            f'<div class="history-cell">'
+            f'<span class="tracking-since">Since {esc(tracking_since)}</span>'
+            f'<span class="data-points">{history_count} pt{"s" if history_count != 1 else ""}</span>'
+            f'</div>'
+        )
+
+        pricing_cell_html = render_pricing_cell(v, canonical_size)
 
         row = f'''
             <tr data-category="{esc(v["category"])}" data-status="{esc(v["status"])}">
               <td class="vendor">
-                <a href="{esc(v["pricing_url"])}" target="_blank" rel="noopener">{esc(v["name"])}</a>
+                <a href="{esc(v["pricing_url"])}" target="_blank" rel="noopener">{esc(v["name"])}</a>{pending_badge}
                 <span class="category-tag">{esc(v["category"])}</span>
               </td>
               <td><span class="badge {esc(v["status"])}">{emoji} {label}</span></td>
-              <td class="tiers">{render_tiers(v.get("tiers", []))}</td>
+              <td class="pricing-cell">{pricing_cell_html}</td>
               <td class="history">{history_cell}</td>
-              <td class="notes">{notes_html}</td>
             </tr>
         '''
         table_rows_html.append(row)
@@ -249,9 +359,7 @@ def render():
     # Filter buttons
     filter_buttons_html = '<button class="filter-btn active" data-filter="all">All</button>'
     for cat in categories_present:
-        filter_buttons_html += (
-            f'<button class="filter-btn" data-filter="{esc(cat)}">{esc(cat)}</button>'
-        )
+        filter_buttons_html += f'<button class="filter-btn" data-filter="{esc(cat)}">{esc(cat)}</button>'
 
     html_out = f'''<!DOCTYPE html>
 <html lang="en">
@@ -271,9 +379,9 @@ def render():
     <div class="nav-links">
       <a href="#scorecard">Scorecard</a>
       <a href="#recent-changes">Recent Changes</a>
+      <a href="#methodology-section">How it's Calculated</a>
       <a href="#hall-of-shame">Hall of Shame</a>
       <a href="#all-vendors">All Vendors</a>
-      <a href="#methodology">How It Works</a>
     </div>
   </div>
 </nav>
@@ -281,7 +389,7 @@ def render():
 <header id="top">
   <div class="container">
     <h1>PM Software Pricing Tracker</h1>
-    <p class="subtitle">A weekly snapshot of pricing across the software residential property managers actually use. We publish every change so PMs can make informed buying decisions — even when vendors would rather you call sales.</p>
+    <p class="subtitle">A weekly snapshot of pricing across the software residential property managers actually use. We normalize prices to "Cost at 500 doors" so you can compare apples to apples, even when one vendor charges per door and another charges per user.</p>
     <div class="meta">
       <span>Last updated <strong>{esc(meta["last_updated"])}</strong></span>
       <span class="dot">·</span>
@@ -310,13 +418,15 @@ def render():
       <div class="number">{gated}</div>
       <div class="label">Hide pricing entirely</div>
     </div>
-    <div class="stat manual">
-      <div class="number">{manual}</div>
-      <div class="label">Verified manually</div>
+    <div class="stat pending">
+      <div class="number">{pending}</div>
+      <div class="label">Need follow-up data</div>
     </div>
   </div>
 
   {recent_changes_html}
+
+  {methodology_html}
 
   <section id="hall-of-shame">
     <h2>🔒 Hall of Shame</h2>
@@ -328,7 +438,7 @@ def render():
 
   <section id="all-vendors">
     <h2>📋 All Tracked Vendors</h2>
-    <p class="section-desc">Filter by category. Click any vendor name to visit their pricing page directly.</p>
+    <p class="section-desc">Filter by category. Click "See details" inside any row for tier-level pricing, breakdowns at 100 / 350 / 1000 doors, or follow-up notes.</p>
 
     <div class="filters">
       {filter_buttons_html}
@@ -340,9 +450,8 @@ def render():
           <tr>
             <th>Vendor</th>
             <th>Status</th>
-            <th>Pricing</th>
+            <th>Cost at {canonical_size} doors</th>
             <th>History</th>
-            <th>Notes</th>
           </tr>
         </thead>
         <tbody id="vendor-rows">
@@ -358,7 +467,7 @@ def render():
   <div class="container">
     <h3 id="methodology">How this works</h3>
     <p>Every Monday, an automated job visits each public pricing page, snapshots it, and compares it to the previous week. Any change — a new tier, a price increase, a removed plan — is committed to this repo. The full pricing history lives in the git log and in each vendor's <code>price_history</code> record.</p>
-    <p>For vendors with gated pricing, we monitor Reddit (r/PropertyManagement, r/realestateinvesting, r/Landlord, r/RealEstate) for operator-reported numbers, and pull pricing context from AppFolio's quarterly earnings calls (they're publicly traded on NASDAQ as APPF).</p>
+    <p>For vendors with gated pricing, we monitor Reddit (r/PropertyManagement, r/realestateinvesting, r/Landlord, r/RealEstate) for operator-reported numbers, and pull pricing context from AppFolio's quarterly earnings calls (NASDAQ: APPF).</p>
     <p><strong>Classification framework:</strong> {esc(meta.get("classification_framework", ""))}</p>
     <p><strong>This is not vendor-confirmed pricing.</strong> Always validate with the vendor before signing.</p>
     <p><strong>Spotted an error or a price change?</strong> Open an issue on the repo and we update as soon as we can verify.</p>
@@ -393,7 +502,7 @@ def render():
 
     DOCS_DIR.mkdir(parents=True, exist_ok=True)
     INDEX_FILE.write_text(html_out)
-    print(f"docs/index.html generated — {len(vendors)} vendors ({gated} in Hall of Shame), {len(recent_changes)} recent changes")
+    print(f"docs/index.html generated — {len(vendors)} vendors ({gated} in Hall of Shame), {len(recent_changes)} recent changes, {pending} data-pending")
 
 
 if __name__ == "__main__":

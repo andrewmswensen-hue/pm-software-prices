@@ -14,6 +14,7 @@
 - 🟡 **4** publish partial pricing ("starts at" / model only)
 - 🔒 **7** hide pricing entirely — see Hall of Shame below
 - ⚙️ **2** publish pricing but block automated tracking (verified manually)
+- 📊 **6** vendors need follow-up data (calculator pricing, invoice info, etc.)
 
 ---
 
@@ -82,12 +83,12 @@ These vendors expect property managers to sit through a sales call before learni
 
 ### PM Software
 
-| Vendor | Status | Tiers |
-|---|---|---|
-| [Buildium](https://www.buildium.com/pricing/) | 🟡 Partial | Essential: starts at $62/mo<br>**Growth**: starts at $192/mo<br>Premium: starts at $400/mo |
-| [Propertyware](https://www.propertyware.com/pricing/) | ✅ Public | Basic: $1.00/unit ($250 min)<br>**Plus**: $1.50/unit ($350 min)<br>Premium: $2.00/unit ($450 min) |
-| [Rentvine](https://www.rentvine.com/pricing) | 🟡 Partial | All-Inclusive: as low as $1.50/unit |
-| [DoorLoop](https://www.doorloop.com/pricing) | ✅ Public | Starter (≤10 units): $69/mo annual ($99 monthly)<br>**Pro**: $149/mo annual ($189 monthly)<br>Premium: $209/mo annual ($239 monthly) |
+| Vendor | Status | Cost at 500 doors | Tiers |
+|---|---|---|---|
+| [Buildium](https://www.buildium.com/pricing/) 📊 | 🟡 Partial | 📊 _pending_ | Essential: starts at $62/mo<br>**Growth**: starts at $192/mo<br>Premium: starts at $400/mo |
+| [Propertyware](https://www.propertyware.com/pricing/) | ✅ Public | **$750/mo** | Basic: $1.00/unit ($250 min)<br>**Plus**: $1.50/unit ($350 min)<br>Premium: $2.00/unit ($450 min) |
+| [Rentvine](https://www.rentvine.com/pricing) 📊 | 🟡 Partial | **$750/mo** | All-Inclusive: as low as $1.50/unit |
+| [DoorLoop](https://www.doorloop.com/pricing) | ✅ Public | **$149/mo (Pro)** | Starter (≤10 units): $69/mo annual ($99 monthly)<br>**Pro**: $149/mo annual ($189 monthly)<br>Premium: $209/mo annual ($239 monthly) |
 
 <details>
 <summary>Notes (4)</summary>
@@ -101,10 +102,10 @@ These vendors expect property managers to sit through a sales call before learni
 
 ### Maintenance
 
-| Vendor | Status | Tiers |
-|---|---|---|
-| [Property Meld](https://propertymeld.com/pricing/) | ✅ Public | Core: $1.60/unit<br>**Ops**: $2.00/unit<br>MAX On-Call (add-on): $1.50/unit |
-| [EZ Repair Hotline](https://michaelfairbanks0.wixsite.com/mysite-3) | 🟡 Partial | Listed price: starts at $1.49/mo |
+| Vendor | Status | Cost at 500 doors | Tiers |
+|---|---|---|---|
+| [Property Meld](https://propertymeld.com/pricing/) | ✅ Public | **$1,000/mo** | Core: $1.60/unit<br>**Ops**: $2.00/unit<br>MAX On-Call (add-on): $1.50/unit |
+| [EZ Repair Hotline](https://michaelfairbanks0.wixsite.com/mysite-3) 📊 | 🟡 Partial | 📊 _pending_ | Listed price: starts at $1.49/mo |
 
 <details>
 <summary>Notes (2)</summary>
@@ -116,11 +117,11 @@ These vendors expect property managers to sit through a sales call before learni
 
 ### Leasing
 
-| Vendor | Status | Tiers |
-|---|---|---|
-| [ShowMojo](https://hello.showmojo.com/pricing/) | ✅ Public | Pro (unit-based): $1.30/unit<br>**Ultra (unit-based)**: $2.70/unit<br>Pro (listing-based): $50/listing<br>Ultra (listing-based): $110/listing |
-| [Tenant Turner](https://tenantturner.com/pricing) | ✅ Public | Pro: $1.30/unit ($65 min)<br>**Ultra**: $2.70/unit ($135 min) |
-| [RentEngine](https://www.rentengine.io/pricing) | ✅ Public | Standard: $45/listing ($250/mo min)<br>Custom (2,000+ doors): Contact sales |
+| Vendor | Status | Cost at 500 doors | Tiers |
+|---|---|---|---|
+| [ShowMojo](https://hello.showmojo.com/pricing/) | ✅ Public | **$1,350/mo** | Pro (unit-based): $1.30/unit<br>**Ultra (unit-based)**: $2.70/unit<br>Pro (listing-based): $50/listing<br>Ultra (listing-based): $110/listing |
+| [Tenant Turner](https://tenantturner.com/pricing) | ✅ Public | **$1,350/mo** | Pro: $1.30/unit ($65 min)<br>**Ultra**: $2.70/unit ($135 min) |
+| [RentEngine](https://www.rentengine.io/pricing) | ✅ Public | **$1,350/mo (~30 listings)** | Standard: $45/listing ($250/mo min)<br>Custom (2,000+ doors): Contact sales |
 
 <details>
 <summary>Notes (3)</summary>
@@ -131,28 +132,11 @@ These vendors expect property managers to sit through a sales call before learni
 
 </details>
 
-### Listings/Marketing
-
-| Vendor | Status | Tiers |
-|---|---|---|
-| [Zillow Rental Manager](https://www.zillow.com/rental-manager/post-a-listing/) | 🚫 Manual | Basic Listing: Free<br>Premium Listing: $29.99 / 90 days |
-| [PMW (Property Manager Websites)](https://www.propertymanagerwebsites.com/pricing) | ✅ Public | Custom Website Setup: $1,795+<br>Essentials (monthly): $195/mo<br>**Grow (monthly)**: $795/mo ($145 if Rentvine)<br>Premier (monthly): $1,295/mo ($795 if Rentvine) |
-| [All Property Management](https://www.allpropertymanagement.com/about/join-our-network/) | ✅ Public | Residential (Single/Condo): $40–$145/lead<br>Vacation rentals: $65–$70/lead<br>Associations (HOA/Condo): $75–$150/lead<br>**Commercial**: $85–$135/lead<br>Specialized (parking, biotech): $95–$105/lead |
-
-<details>
-<summary>Notes (3)</summary>
-
-- **Zillow Rental Manager** — Landlord-side is mostly free (ACH rent collection included). Renter pays $35 application fee + 2.95% CC fee or $9.95 debit fee. Page blocks automated fetches — values verified manually.
-- **PMW (Property Manager Websites)** — Two pricing axes: site build + monthly support. Custom page add-on $795/page. Rentvine clients get steep monthly discount.
-- **All Property Management** — Per-lead minimum bids vary by property type, unit count, and square footage. No monthly fees, no contracts. PMs can bid above the minimum for priority placement.
-
-</details>
-
 ### Inspections
 
-| Vendor | Status | Tiers |
-|---|---|---|
-| [zInspector](https://zinspector.com/pricing/) | ⚙️ Manual | Free: $0 (≤5 properties)<br>Paid tiers: ~$16–$28/mo (4 editions) |
+| Vendor | Status | Cost at 500 doors | Tiers |
+|---|---|---|---|
+| [zInspector](https://zinspector.com/pricing/) 📊 | ⚙️ Manual | _native pricing_ | Free: $0 (≤5 properties)<br>Paid tiers: ~$16–$28/mo (4 editions) |
 
 <details>
 <summary>Notes (1)</summary>
@@ -163,10 +147,10 @@ These vendors expect property managers to sit through a sales call before learni
 
 ### CRM/Workflow
 
-| Vendor | Status | Tiers |
-|---|---|---|
-| [Aptly](https://www.getaptly.com/pricing) | ✅ Public | Essential: $40/user/mo<br>**Premium**: $80/user/mo<br>Enterprise: Custom |
-| [LeadSimple](https://www.leadsimple.com/pricing) | ✅ Public | Phone+Inbox Core: $29/user/mo<br>Phone+Inbox Pro: $59/user/mo<br>CRM: $99/mo + $30/extra user<br>**Operations**: $1.35/door/mo ($200 min) |
+| Vendor | Status | Cost at 500 doors | Tiers |
+|---|---|---|---|
+| [Aptly](https://www.getaptly.com/pricing) | ✅ Public | **$560/mo (7 users)** | Essential: $40/user/mo<br>**Premium**: $80/user/mo<br>Enterprise: Custom |
+| [LeadSimple](https://www.leadsimple.com/pricing) 📊 | ✅ Public | **$675/mo** | Phone+Inbox Core: $29/user/mo<br>Phone+Inbox Pro: $59/user/mo<br>CRM: $99/mo + $30/extra user<br>**Operations**: $1.35/door/mo ($200 min) |
 
 <details>
 <summary>Notes (2)</summary>
@@ -176,47 +160,11 @@ These vendors expect property managers to sit through a sales call before learni
 
 </details>
 
-### Communications
-
-| Vendor | Status | Tiers |
-|---|---|---|
-| [Slack](https://slack.com/pricing) | ✅ Public | Free: $0<br>Pro: $7.25/user/mo annual<br>**Business+**: $15/user/mo annual<br>Enterprise+: Contact sales |
-| [Notion](https://www.notion.com/pricing) | ✅ Public | Free: $0<br>Plus: $10/member/mo<br>**Business**: $20/member/mo<br>Enterprise: Contact sales |
-| [Google Workspace](https://workspace.google.com/pricing) | ✅ Public | Business Starter: $7/user/mo<br>**Business Standard**: $14/user/mo<br>Business Plus: $22/user/mo<br>Enterprise: Contact sales |
-
-<details>
-<summary>Notes (3)</summary>
-
-- **Slack** — Monthly billing is higher: Pro $8.75/user, Business+ $18/user. 50% off promo for first 3 months on new workspaces.
-- **Notion** — Up to 20% off with annual billing. Guests are free.
-- **Google Workspace** — Business tiers capped at 300 users. 16% discount with annual commitment. Storage: 30 GB / 2 TB / 5 TB pooled.
-
-</details>
-
-### Finance
-
-| Vendor | Status | Tiers |
-|---|---|---|
-| [ProfitCoach](https://www.pmprofitcoach.com/) | ✅ Public | ProfitDive (one-time): $4,500 ($2,000 if NARPM-standards)<br>GameChanger Coaching: $1,195/mo<br>**Boost Coaching**: $495/mo<br>Process Design: $2,500/process<br>Process Optimization: $1,500/process<br>Accounting Services: Contact for quote |
-| [Gusto](https://gusto.com/product/pricing) | ✅ Public | Contractor Only: $0–$35/mo base + $6/contractor<br>Simple: $49/mo + $6/employee<br>**Plus**: $80/mo + $12/employee<br>Premium: $180/mo + $22/employee |
-| [Xero](https://www.xero.com/us/pricing-plans/) | ✅ Public | Early: $25/mo (20 invoices, 5 bills cap)<br>**Growing**: $55/mo (unlimited)<br>Established: $90/mo (+ multi-currency, projects, analytics) |
-| [QuickBooks Online](https://quickbooks.intuit.com/pricing/) | ✅ Public | Simple Start: $38/mo<br>Essentials: $75/mo<br>**Plus**: $115/mo<br>Advanced: $275/mo |
-
-<details>
-<summary>Notes (4)</summary>
-
-- **ProfitCoach** — Surprisingly transparent for a high-touch PM consulting firm.
-- **Gusto** — Month-to-month, no contract. Unlimited payrolls. Benefits add-ons priced separately.
-- **Xero** — First month free. Gusto payroll integration separate ($80–$260+/mo).
-- **QuickBooks Online** — Post-July 2025 price increase. User caps: 1 / 3 / 5 / 25. 50%-off-for-3-months promo typically shown. Payroll, Payments, Live Bookkeeping are add-ons.
-
-</details>
-
 ### Payments
 
-| Vendor | Status | Tiers |
-|---|---|---|
-| [Boom](https://www.boompay.app/) | 🟡 Partial | BoomScreen (Tenant Screening): PM sets applicant price<br>BoomReport (Rent Reporting): At-cost or pass-through to renter |
+| Vendor | Status | Cost at 500 doors | Tiers |
+|---|---|---|---|
+| [Boom](https://www.boompay.app/) 📊 | 🟡 Partial | _volume-based_ | BoomScreen (Tenant Screening): PM sets applicant price<br>BoomReport (Rent Reporting): At-cost or pass-through to renter |
 
 <details>
 <summary>Notes (1)</summary>
@@ -225,16 +173,80 @@ These vendors expect property managers to sit through a sales call before learni
 
 </details>
 
+### Lead Generation
+
+| Vendor | Status | Cost at 500 doors | Tiers |
+|---|---|---|---|
+| [All Property Management](https://www.allpropertymanagement.com/about/join-our-network/) | ✅ Public | _volume-based_ | Residential (Single/Condo): $40–$145/lead<br>Vacation rentals: $65–$70/lead<br>Associations (HOA/Condo): $75–$150/lead<br>**Commercial**: $85–$135/lead<br>Specialized (parking, biotech): $95–$105/lead |
+
+<details>
+<summary>Notes (1)</summary>
+
+- **All Property Management** — Per-lead minimum bids vary by property type, unit count, and square footage. No monthly fees, no contracts. PMs can bid above the minimum for priority placement.
+
+</details>
+
+### Listings Marketplaces
+
+| Vendor | Status | Cost at 500 doors | Tiers |
+|---|---|---|---|
+| [Zillow Rental Manager](https://www.zillow.com/rental-manager/post-a-listing/) | 🚫 Manual | _variable_ | Basic Listing: Free<br>Premium Listing: $29.99 / 90 days |
+
+<details>
+<summary>Notes (1)</summary>
+
+- **Zillow Rental Manager** — Landlord-side is mostly free (ACH rent collection included). Renter pays $35 application fee + 2.95% CC fee or $9.95 debit fee. Page blocks automated fetches — values verified manually.
+
+</details>
+
+### Sales & Marketing Services
+
+| Vendor | Status | Cost at 500 doors | Tiers |
+|---|---|---|---|
+| [PMW (Property Manager Websites)](https://www.propertymanagerwebsites.com/pricing) | ✅ Public | _native pricing_ | Custom Website Setup: $1,795+<br>Essentials (monthly): $195/mo<br>**Grow (monthly)**: $795/mo ($145 if Rentvine)<br>Premier (monthly): $1,295/mo ($795 if Rentvine) |
+
+<details>
+<summary>Notes (1)</summary>
+
+- **PMW (Property Manager Websites)** — Two pricing axes: site build + monthly support. Custom page add-on $795/page. Rentvine clients get steep monthly discount.
+
+</details>
+
 ### Industry Association
 
-| Vendor | Status | Tiers |
-|---|---|---|
-| [NARPM](https://www.narpm.org/join/narpm-membership/) | ✅ Public | Professional Individual: $320/yr ($270 first year)<br>Support Staff: $175/yr ($125 first year)<br>National Affiliate: $320/yr ($270 first year)<br>Company Membership: $760 base + $125/extra member<br>Broker/Owner Conference: 🔒 Hidden (Cvent portal) |
+| Vendor | Status | Cost at 500 doors | Tiers |
+|---|---|---|---|
+| [NARPM](https://www.narpm.org/join/narpm-membership/) | ✅ Public | _native pricing_ | Professional Individual: $320/yr ($270 first year)<br>Support Staff: $175/yr ($125 first year)<br>National Affiliate: $320/yr ($270 first year)<br>Company Membership: $760 base + $125/extra member<br>Broker/Owner Conference: 🔒 Hidden (Cvent portal) |
 
 <details>
 <summary>Notes (1)</summary>
 
 - **NARPM** — $50 new-member discount applies first year. Local chapter dues are separate. Broker/Owner 2026 in New Orleans (Apr 27–30) — registration fees not posted publicly.
+
+</details>
+
+### Business Tools
+
+| Vendor | Status | Cost at 500 doors | Tiers |
+|---|---|---|---|
+| [Slack](https://slack.com/pricing) | ✅ Public | _native pricing_ | Free: $0<br>Pro: $7.25/user/mo annual<br>**Business+**: $15/user/mo annual<br>Enterprise+: Contact sales |
+| [Notion](https://www.notion.com/pricing) | ✅ Public | _native pricing_ | Free: $0<br>Plus: $10/member/mo<br>**Business**: $20/member/mo<br>Enterprise: Contact sales |
+| [Google Workspace](https://workspace.google.com/pricing) | ✅ Public | _native pricing_ | Business Starter: $7/user/mo<br>**Business Standard**: $14/user/mo<br>Business Plus: $22/user/mo<br>Enterprise: Contact sales |
+| [ProfitCoach](https://www.pmprofitcoach.com/) | ✅ Public | _native pricing_ | ProfitDive (one-time): $4,500 ($2,000 if NARPM-standards)<br>GameChanger Coaching: $1,195/mo<br>**Boost Coaching**: $495/mo<br>Process Design: $2,500/process<br>Process Optimization: $1,500/process<br>Accounting Services: Contact for quote |
+| [Gusto](https://gusto.com/product/pricing) | ✅ Public | _native pricing_ | Contractor Only: $0–$35/mo base + $6/contractor<br>Simple: $49/mo + $6/employee<br>**Plus**: $80/mo + $12/employee<br>Premium: $180/mo + $22/employee |
+| [Xero](https://www.xero.com/us/pricing-plans/) | ✅ Public | _native pricing_ | Early: $25/mo (20 invoices, 5 bills cap)<br>**Growing**: $55/mo (unlimited)<br>Established: $90/mo (+ multi-currency, projects, analytics) |
+| [QuickBooks Online](https://quickbooks.intuit.com/pricing/) | ✅ Public | _native pricing_ | Simple Start: $38/mo<br>Essentials: $75/mo<br>**Plus**: $115/mo<br>Advanced: $275/mo |
+
+<details>
+<summary>Notes (7)</summary>
+
+- **Slack** — Monthly billing is higher: Pro $8.75/user, Business+ $18/user. 50% off promo for first 3 months on new workspaces.
+- **Notion** — Up to 20% off with annual billing. Guests are free.
+- **Google Workspace** — Business tiers capped at 300 users. 16% discount with annual commitment. Storage: 30 GB / 2 TB / 5 TB pooled.
+- **ProfitCoach** — Surprisingly transparent for a high-touch PM consulting firm.
+- **Gusto** — Month-to-month, no contract. Unlimited payrolls. Benefits add-ons priced separately.
+- **Xero** — First month free. Gusto payroll integration separate ($80–$260+/mo).
+- **QuickBooks Online** — Post-July 2025 price increase. User caps: 1 / 3 / 5 / 25. 50%-off-for-3-months promo typically shown. Payroll, Payments, Live Bookkeeping are add-ons.
 
 </details>
 

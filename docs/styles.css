@@ -416,6 +416,170 @@ tbody td.tiers .qualifier {
   color: var(--muted);
   font-size: 12px;
 }
+/* PRICING CELL (the big one) */
+tbody td.pricing-cell {
+  font-size: 14px;
+  min-width: 260px;
+  max-width: 360px;
+}
+.pricing-cell-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.canonical-price {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+.canonical-label {
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.native-pricing-label, .variable-label, .pending-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+.native-pricing-label { color: var(--accent); }
+.variable-label { color: var(--gray); }
+.pending-label { color: var(--yellow); }
+
+.row-expand {
+  margin-top: 4px;
+}
+.row-expand > summary {
+  font-size: 12px;
+  color: var(--accent);
+  cursor: pointer;
+  font-weight: 500;
+  user-select: none;
+  padding: 2px 0;
+  list-style: none;
+}
+.row-expand > summary::-webkit-details-marker { display: none; }
+.row-expand > summary::before {
+  content: "▸ ";
+  display: inline-block;
+  transition: transform 0.15s;
+}
+.row-expand[open] > summary::before {
+  content: "▾ ";
+}
+.row-expand > summary:hover { color: var(--accent-hover); }
+.expand-body {
+  margin-top: 8px;
+  padding: 12px;
+  background: #fafaf9;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+.expand-section {
+  margin-bottom: 12px;
+}
+.expand-section:last-child {
+  margin-bottom: 0;
+}
+.expand-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.expand-section.data-pending-note {
+  background: var(--yellow-bg);
+  border: 1px solid #fbbf24;
+  border-radius: 4px;
+  padding: 10px 12px;
+  margin: 4px 0 12px;
+}
+.expand-section.data-pending-note .expand-label {
+  color: #92400e;
+}
+.expand-section.data-pending-note p {
+  margin: 0;
+  font-size: 13px;
+  color: #78350f;
+}
+.size-breakdown-list, .tier-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 13px;
+}
+.size-breakdown-list li {
+  padding: 2px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+.size-label { color: var(--muted); }
+.size-price { font-weight: 600; color: var(--text); }
+.tier-list .tier {
+  padding: 2px 0;
+}
+.tier-name { font-weight: 500; }
+.tier-name.highlighted { font-weight: 700; }
+.qualifier { color: var(--muted); font-size: 12px; }
+
+.pending-badge {
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--yellow-bg);
+  color: #92400e;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+/* METHODOLOGY CARD */
+.methodology-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+  margin-bottom: 56px;
+}
+.methodology-card h2 {
+  margin-top: 0;
+}
+.assumptions-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px 24px;
+  font-size: 14px;
+}
+.assumptions-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+.assumptions-list li:last-child,
+.assumptions-list li:nth-last-child(2):nth-child(odd) {
+  border-bottom: none;
+}
+.assumptions-note {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0;
+  font-style: italic;
+}
+
+/* PENDING-DATA STAT VARIANT */
+.stat.pending .number { color: var(--yellow); }
+
 tbody td.notes {
   font-size: 12px;
   color: var(--muted);
@@ -491,10 +655,13 @@ footer .repo-link:hover { border-color: var(--text); text-decoration: none; }
   .shame-grid { grid-template-columns: 1fr; }
   header h1 { font-size: 28px; }
   header { padding: 32px 0 24px; }
-  tbody td.notes, tbody td.history,
-  thead th:nth-child(4), thead th:nth-child(5) { display: none; }
+  tbody td.history,
+  thead th:nth-child(4) { display: none; }
   .change-item { flex-direction: column; gap: 6px; padding: 14px 18px; }
   .change-date { min-width: 0; }
+  .assumptions-list { grid-template-columns: 1fr; }
+  tbody td.pricing-cell { min-width: 0; max-width: none; }
+  .canonical-price { font-size: 18px; }
 }
 
 @media (max-width: 640px) {

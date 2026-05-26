@@ -1,10 +1,27 @@
 {
   "metadata": {
+<<<<<<< HEAD
     "last_updated": "2026-05-25",
     "version": "1.1",
+=======
+    "last_updated": "2026-05-21",
+    "version": "1.2",
+>>>>>>> b99db1b (v1.2: normalize pricing to 'Cost at 500 doors' with expandable size breakdown)
     "maintainer": "Peter Lohmann Media",
     "editorial_stance": "Would it help the average property manager to know this?",
-    "classification_framework": "Hall of Shame = zero pricing visible publicly. A 'Custom Enterprise' tier alongside listed prices is a footnote, not shame."
+    "classification_framework": "Hall of Shame = zero pricing visible publicly. A 'Custom Enterprise' tier alongside listed prices is a footnote, not shame.",
+    "normalization_defaults": {
+      "occupancy": 0.9,
+      "active_listing_ratio": 0.6,
+      "doors_per_user": 75,
+      "canonical_size": 500,
+      "size_breakdown": [
+        100,
+        350,
+        1000
+      ]
+    },
+    "normalization_note": "Per-door equivalent prices computed using these defaults: 90% occupancy, 60% of vacancies actively listed, 1 user per 75 doors. Vendors with native_only pricing (Slack, Notion, etc.) show their published pricing. Vendors with starts_at qualifiers need a calculator we don't have access to."
   },
   "vendors": [
     {
@@ -34,7 +51,8 @@
       "third_party_intel": "Operator reports suggest ~$1.40/unit floor, $250/mo minimum, plus per-transaction fees. Not vendor-confirmed.",
       "last_checked": "2026-05-21",
       "last_changed": null,
-      "change_log": []
+      "change_log": [],
+      "pricing_unit": "gated"
     },
     {
       "name": "Buildium",
@@ -76,7 +94,9 @@
             "Premium": "$400/mo"
           }
         }
-      ]
+      ],
+      "pricing_unit": "starts_at",
+      "data_pending": "Calculator pricing for 100/350/1000 doors needed from buildium.com/pricing"
     },
     {
       "name": "Property Meld",
@@ -115,7 +135,14 @@
             "MAX On-Call (add-on)": "$1.50/unit"
           }
         }
-      ]
+      ],
+      "pricing_unit": "per_unit",
+      "normalized_pricing": {
+        "100": "$200/mo",
+        "350": "$700/mo",
+        "500": "$1,000/mo",
+        "1000": "$2,000/mo"
+      }
     },
     {
       "name": "Second Nature",
@@ -135,7 +162,8 @@
       "shame_line": "Residents are told they'll pay $20\u2013$80/mo. What the PM actually earns or pays? Not disclosed. The whole margin is invisible.",
       "last_checked": "2026-05-21",
       "last_changed": null,
-      "change_log": []
+      "change_log": [],
+      "pricing_unit": "gated"
     },
     {
       "name": "Propertyware",
@@ -174,7 +202,14 @@
             "Premium": "$2.00/unit ($450 min)"
           }
         }
-      ]
+      ],
+      "pricing_unit": "per_unit",
+      "normalized_pricing": {
+        "100": "$150/mo",
+        "350": "$525/mo",
+        "500": "$750/mo",
+        "1000": "$1,500/mo"
+      }
     },
     {
       "name": "Aptly",
@@ -213,7 +248,14 @@
             "Enterprise": "Custom"
           }
         }
-      ]
+      ],
+      "pricing_unit": "per_user",
+      "normalized_pricing": {
+        "100": "$160/mo (2 users)",
+        "350": "$400/mo (5 users)",
+        "500": "$560/mo (7 users)",
+        "1000": "$1,120/mo (14 users)"
+      }
     },
     {
       "name": "LeadSimple",
@@ -257,7 +299,15 @@
             "Operations": "$1.35/door/mo ($200 min)"
           }
         }
-      ]
+      ],
+      "pricing_unit": "per_unit",
+      "data_pending": "Hybrid pricing model \u2014 Operations tier is per-door, others per-user. Normalizing using Operations tier.",
+      "normalized_pricing": {
+        "100": "$135/mo",
+        "350": "$473/mo",
+        "500": "$675/mo",
+        "1000": "$1,350/mo"
+      }
     },
     {
       "name": "Rentvine",
@@ -286,12 +336,20 @@
             "All-Inclusive": "$1.50/unit"
           }
         }
-      ]
+      ],
+      "pricing_unit": "per_unit",
+      "data_pending": "Confirm '$1.50/unit' is true unit price, not 'starts at'",
+      "normalized_pricing": {
+        "100": "$150/mo",
+        "350": "$525/mo",
+        "500": "$750/mo",
+        "1000": "$1,500/mo"
+      }
     },
     {
       "name": "Zillow Rental Manager",
       "slug": "zillow-rental-manager",
-      "category": "Listings/Marketing",
+      "category": "Listings Marketplaces",
       "homepage": "https://www.zillow.com/rental-manager/",
       "pricing_url": "https://www.zillow.com/rental-manager/post-a-listing/",
       "status": "bot_blocked",
@@ -320,12 +378,13 @@
             "Premium Listing": "$29.99 / 90 days"
           }
         }
-      ]
+      ],
+      "pricing_unit": "variable"
     },
     {
       "name": "Apartments.com (for PMs)",
       "slug": "apartments-com",
-      "category": "Listings/Marketing",
+      "category": "Listings Marketplaces",
       "homepage": "https://www.apartments.com/rental-manager/",
       "pricing_url": "https://www.apartments.com/rental-manager/",
       "status": "gated",
@@ -349,7 +408,8 @@
       "third_party_intel": "Industry reports cite ~$200\u2013$400/mo for larger complexes \u2014 vendor does not confirm.",
       "last_checked": "2026-05-21",
       "last_changed": null,
-      "change_log": []
+      "change_log": [],
+      "pricing_unit": "gated"
     },
     {
       "name": "NARPM",
@@ -398,12 +458,13 @@
             "Broker/Owner Conference": "\ud83d\udd12 Hidden (Cvent portal)"
           }
         }
-      ]
+      ],
+      "pricing_unit": "native_only"
     },
     {
       "name": "Slack",
       "slug": "slack",
-      "category": "Communications",
+      "category": "Business Tools",
       "homepage": "https://slack.com/",
       "pricing_url": "https://slack.com/pricing",
       "status": "public_full",
@@ -442,12 +503,13 @@
             "Enterprise+": "Contact sales"
           }
         }
-      ]
+      ],
+      "pricing_unit": "native_only"
     },
     {
       "name": "Notion",
       "slug": "notion",
-      "category": "Communications",
+      "category": "Business Tools",
       "homepage": "https://www.notion.com/",
       "pricing_url": "https://www.notion.com/pricing",
       "status": "public_full",
@@ -486,12 +548,13 @@
             "Enterprise": "Contact sales"
           }
         }
-      ]
+      ],
+      "pricing_unit": "native_only"
     },
     {
       "name": "Google Workspace",
       "slug": "google-workspace",
-      "category": "Communications",
+      "category": "Business Tools",
       "homepage": "https://workspace.google.com/",
       "pricing_url": "https://workspace.google.com/pricing",
       "status": "public_full",
@@ -548,12 +611,13 @@
             "Enterprise": "Contact sales"
           }
         }
-      ]
+      ],
+      "pricing_unit": "native_only"
     },
     {
       "name": "ProfitCoach",
       "slug": "profitcoach",
-      "category": "Finance",
+      "category": "Business Tools",
       "homepage": "https://www.pmprofitcoach.com/",
       "pricing_url": "https://www.pmprofitcoach.com/",
       "status": "public_full",
@@ -602,7 +666,8 @@
             "Accounting Services": "Contact for quote"
           }
         }
-      ]
+      ],
+      "pricing_unit": "native_only"
     },
     {
       "name": "zInspector",
@@ -636,12 +701,14 @@
             "Paid tiers": "~$16\u2013$28/mo (4 editions)"
           }
         }
-      ]
+      ],
+      "pricing_unit": "native_only",
+      "data_pending": "Confirm tier + monthly cost from RLPMG's current zInspector invoice"
     },
     {
       "name": "PropertyManagement.com",
       "slug": "propertymanagement-com",
-      "category": "Listings/Marketing",
+      "category": "Lead Generation",
       "homepage": "https://www.propertymanagement.com/",
       "pricing_url": "https://www.propertymanagement.com/",
       "status": "gated",
@@ -660,7 +727,8 @@
       "shame_line": "Branded as 'zero pay-to-play' for rankings \u2014 but won't say what the optional PM profile upgrade actually costs.",
       "last_checked": "2026-05-21",
       "last_changed": null,
-      "change_log": []
+      "change_log": [],
+      "pricing_unit": "gated"
     },
     {
       "name": "DoorLoop",
@@ -699,7 +767,14 @@
             "Premium": "$209/mo annual ($239 monthly)"
           }
         }
-      ]
+      ],
+      "pricing_unit": "flat_tier",
+      "normalized_pricing": {
+        "100": "$149/mo (Pro)",
+        "350": "$149/mo (Pro)",
+        "500": "$149/mo (Pro)",
+        "1000": "$149/mo (Pro)"
+      }
     },
     {
       "name": "Haven",
@@ -720,7 +795,8 @@
       "third_party_intel": "~$499/mo entry, $1.50\u2013$5/door (per industry sources).",
       "last_checked": "2026-05-21",
       "last_changed": null,
-      "change_log": []
+      "change_log": [],
+      "pricing_unit": "gated"
     },
     {
       "name": "ShowMojo",
@@ -764,7 +840,14 @@
             "Ultra (listing-based)": "$110/listing"
           }
         }
-      ]
+      ],
+      "pricing_unit": "per_unit",
+      "normalized_pricing": {
+        "100": "$270/mo",
+        "350": "$945/mo",
+        "500": "$1,350/mo",
+        "1000": "$2,700/mo"
+      }
     },
     {
       "name": "Tenant Turner",
@@ -798,7 +881,14 @@
             "Ultra": "$2.70/unit ($135 min)"
           }
         }
-      ]
+      ],
+      "pricing_unit": "per_unit",
+      "normalized_pricing": {
+        "100": "$270/mo",
+        "350": "$945/mo",
+        "500": "$1,350/mo",
+        "1000": "$2,700/mo"
+      }
     },
     {
       "name": "RentEngine",
@@ -831,12 +921,19 @@
             "Custom (2,000+ doors)": "Contact sales"
           }
         }
-      ]
+      ],
+      "pricing_unit": "per_listing",
+      "normalized_pricing": {
+        "100": "$270/mo (~6 listings)",
+        "350": "$945/mo (~21 listings)",
+        "500": "$1,350/mo (~30 listings)",
+        "1000": "$2,700/mo (~60 listings)"
+      }
     },
     {
       "name": "Gusto",
       "slug": "gusto",
-      "category": "Finance",
+      "category": "Business Tools",
       "homepage": "https://gusto.com/",
       "pricing_url": "https://gusto.com/product/pricing",
       "status": "public_full",
@@ -875,12 +972,13 @@
             "Premium": "$180/mo + $22/employee"
           }
         }
-      ]
+      ],
+      "pricing_unit": "native_only"
     },
     {
       "name": "Xero",
       "slug": "xero",
-      "category": "Finance",
+      "category": "Business Tools",
       "homepage": "https://www.xero.com/",
       "pricing_url": "https://www.xero.com/us/pricing-plans/",
       "status": "public_full",
@@ -914,12 +1012,13 @@
             "Established": "$90/mo (+ multi-currency, projects, analytics)"
           }
         }
-      ]
+      ],
+      "pricing_unit": "native_only"
     },
     {
       "name": "QuickBooks Online",
       "slug": "quickbooks-online",
-      "category": "Finance",
+      "category": "Business Tools",
       "homepage": "https://quickbooks.intuit.com/",
       "pricing_url": "https://quickbooks.intuit.com/pricing/",
       "status": "public_full",
@@ -958,12 +1057,13 @@
             "Advanced": "$275/mo"
           }
         }
-      ]
+      ],
+      "pricing_unit": "native_only"
     },
     {
       "name": "PMW (Property Manager Websites)",
       "slug": "pmw",
-      "category": "Listings/Marketing",
+      "category": "Sales & Marketing Services",
       "homepage": "https://www.propertymanagerwebsites.com/",
       "pricing_url": "https://www.propertymanagerwebsites.com/pricing",
       "status": "public_full",
@@ -1002,7 +1102,8 @@
             "Premier (monthly)": "$1,295/mo ($795 if Rentvine)"
           }
         }
-      ]
+      ],
+      "pricing_unit": "native_only"
     },
     {
       "name": "EliseAI",
@@ -1022,12 +1123,13 @@
       "shame_line": "Not even a pricing page exists. /pricing returns 404. They didn't bother gating it \u2014 they didn't bother making one.",
       "last_checked": "2026-05-21",
       "last_changed": null,
-      "change_log": []
+      "change_log": [],
+      "pricing_unit": "gated"
     },
     {
       "name": "APM Help",
       "slug": "apm-help",
-      "category": "Finance",
+      "category": "Business Tools",
       "homepage": "https://www.apmhelp.com/",
       "pricing_url": "https://www.apmhelp.com/services",
       "status": "gated",
@@ -1042,12 +1144,13 @@
       "shame_line": "They publicly market '60+ pricing models' for bookkeeping. None of those 60+ models appear on the website. Customization is fine; total opacity is not.",
       "last_checked": "2026-05-21",
       "last_changed": null,
-      "change_log": []
+      "change_log": [],
+      "pricing_unit": "gated"
     },
     {
       "name": "All Property Management",
       "slug": "all-property-management",
-      "category": "Listings/Marketing",
+      "category": "Lead Generation",
       "homepage": "https://www.allpropertymanagement.com/",
       "pricing_url": "https://www.allpropertymanagement.com/about/join-our-network/",
       "status": "public_full",
@@ -1091,7 +1194,8 @@
             "Specialized (parking, biotech)": "$95\u2013$105/lead"
           }
         }
-      ]
+      ],
+      "pricing_unit": "per_lead"
     },
     {
       "name": "Boom",
@@ -1125,7 +1229,9 @@
             "BoomReport (Rent Reporting)": "At-cost or pass-through to renter"
           }
         }
-      ]
+      ],
+      "pricing_unit": "per_event",
+      "data_pending": "Need per-screening and per-unit/mo rates for BoomScreen and BoomReport"
     },
     {
       "name": "EZ Repair Hotline",
@@ -1155,7 +1261,9 @@
             "Listed price": "$1.49/mo"
           }
         }
-      ]
+      ],
+      "pricing_unit": "per_unit",
+      "data_pending": "Confirm $1.49/mo is per-unit (vendor doesn't specify on Wix page)"
     }
   ]
 }

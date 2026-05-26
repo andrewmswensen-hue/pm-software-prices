@@ -1,12 +1,7 @@
 {
   "metadata": {
-<<<<<<< HEAD
     "last_updated": "2026-05-25",
-    "version": "1.1",
-=======
-    "last_updated": "2026-05-21",
     "version": "1.2",
->>>>>>> b99db1b (v1.2: normalize pricing to 'Cost at 500 doors' with expandable size breakdown)
     "maintainer": "Peter Lohmann Media",
     "editorial_stance": "Would it help the average property manager to know this?",
     "classification_framework": "Hall of Shame = zero pricing visible publicly. A 'Custom Enterprise' tier alongside listed prices is a footnote, not shame.",

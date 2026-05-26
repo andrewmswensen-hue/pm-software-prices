@@ -386,6 +386,11 @@ tbody td {
   vertical-align: top;
   font-size: 14px;
 }
+/* Vendor column: shrink to fit content (no wider than the longest name) */
+tbody td.vendor {
+  width: 1%;
+  white-space: nowrap;
+}
 tbody td.vendor a {
   color: var(--text);
   text-decoration: none;
@@ -416,11 +421,11 @@ tbody td.tiers .qualifier {
   color: var(--muted);
   font-size: 12px;
 }
-/* PRICING CELL (the big one) */
+/* PRICING CELL (the big one) — expands to fill remaining width */
 tbody td.pricing-cell {
   font-size: 14px;
-  min-width: 260px;
-  max-width: 360px;
+  min-width: 320px;
+  width: auto;
 }
 .pricing-cell-inner {
   display: flex;

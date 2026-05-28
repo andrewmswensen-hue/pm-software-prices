@@ -454,27 +454,39 @@ tbody td.pricing-cell {
 .pending-label { color: var(--yellow); }
 
 .row-expand {
-  margin-top: 4px;
+  margin-top: 8px;
 }
 .row-expand > summary {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--accent);
   cursor: pointer;
-  font-weight: 500;
+  font-weight: 600;
   user-select: none;
-  padding: 2px 0;
+  padding: 8px 14px;
   list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #eef2ff;
+  border: 1px solid #c7d2fe;
+  border-radius: 7px;
+  transition: all 0.15s;
 }
 .row-expand > summary::-webkit-details-marker { display: none; }
 .row-expand > summary::before {
-  content: "▸ ";
+  content: "▸";
   display: inline-block;
+  font-size: 12px;
   transition: transform 0.15s;
 }
 .row-expand[open] > summary::before {
-  content: "▾ ";
+  content: "▾";
 }
-.row-expand > summary:hover { color: var(--accent-hover); }
+.row-expand > summary:hover {
+  background: #e0e7ff;
+  border-color: var(--accent);
+  color: var(--accent-hover);
+}
 .expand-body {
   margin-top: 8px;
   padding: 12px;

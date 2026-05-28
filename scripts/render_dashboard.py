@@ -129,9 +129,16 @@ def render_pricing_cell(vendor: dict, canonical_size: int) -> str:
 
     expand_html = ""
     if expand_inner:
+        # Label adapts: if we have size breakdowns, advertise them specifically
+        if normalized:
+            summary_label = "See detailed pricing breakdown"
+        elif pricing_unit == "native_only":
+            summary_label = "See all pricing tiers"
+        else:
+            summary_label = "See pricing details"
         expand_html = (
             '<details class="row-expand">'
-            '<summary>See details</summary>'
+            f'<summary>{summary_label}</summary>'
             f'<div class="expand-body">{expand_inner}</div>'
             '</details>'
         )

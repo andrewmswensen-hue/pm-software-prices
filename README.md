@@ -1,6 +1,6 @@
 # 💰 PM Software Pricing Tracker
 
-**Last updated:** 2026-06-15 &nbsp;·&nbsp; **Vendors tracked:** 31 &nbsp;·&nbsp; **Maintained by:** Peter Lohmann Media
+**Last updated:** 2026-06-22 &nbsp;·&nbsp; **Vendors tracked:** 31 &nbsp;·&nbsp; **Maintained by:** Peter Lohmann Media
 
 > A weekly snapshot of pricing across the software residential property managers actually use. We publish every change so PMs can make informed buying decisions — even when vendors would rather you call sales.
 

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-09-28",
+    "last_updated": "2026-10-05",
     "version": "1.2",
     "maintainer": "Peter Lohmann Media",
     "editorial_stance": "Would it help the average property manager to know this?",
@@ -76,7 +76,7 @@
         }
       ],
       "notes": "Portfolios over 5,000 units require sales contact. Add-ons priced separately: eSignature $1\u2013$5/doc, screening $17\u2013$20/applicant, plus payment transaction fees.",
-      "last_checked": "2026-09-28",
+      "last_checked": "2026-10-05",
       "last_changed": null,
       "change_log": [],
       "tracking_since": "2026-05-21",
@@ -117,7 +117,7 @@
         }
       ],
       "notes": "$160/mo minimum. Recommends 100+ doors. Enterprise (50,000+ units) is custom.",
-      "last_checked": "2026-09-28",
+      "last_checked": "2026-10-05",
       "last_changed": "2026-09-07",
       "change_log": [
         {
@@ -195,7 +195,7 @@
         }
       ],
       "notes": "Implementation fee is 2\u00d7 monthly subscription (significant). Add-ons (Maintenance Contact Center, websites, AssetProtect) are quote-only.",
-      "last_checked": "2026-09-28",
+      "last_checked": "2026-10-05",
       "last_changed": null,
       "change_log": [],
       "tracking_since": "2026-05-21",
@@ -241,7 +241,7 @@
         }
       ],
       "notes": "Priced per-user, not per-door \u2014 unusual in PM software and friendly to smaller teams. Monthly and annual billing both offered. Enterprise tier is custom-quoted but Essential and Premium are fully posted.",
-      "last_checked": "2026-09-28",
+      "last_checked": "2026-10-05",
       "last_changed": null,
       "change_log": [],
       "tracking_since": "2026-05-21",
@@ -291,8 +291,8 @@
         }
       ],
       "notes": "Usage overages disclosed: 2.5\u00a2/SMS, 5\u00a2/call min. Work Order sync add-on $0.65/door/mo.",
-      "last_checked": "2026-09-28",
-      "last_changed": "2026-08-10",
+      "last_checked": "2026-10-05",
+      "last_changed": "2026-10-05",
       "change_log": [
         {
           "date": "2026-07-06",
@@ -348,6 +348,48 @@
             "$59",
             "$99"
           ]
+        },
+        {
+          "date": "2026-10-05",
+          "added": [
+            "$0.025",
+            "$0.05",
+            "$0.40",
+            "$129",
+            "$149",
+            "$149/mo",
+            "$199/mo",
+            "$3.49/door",
+            "$30/mo",
+            "$4",
+            "$4/mo",
+            "$499/mo",
+            "$5",
+            "$5/mo"
+          ],
+          "removed": [
+            "$0.69",
+            "$0.89",
+            "$1.29",
+            "$1.35/door",
+            "$1.49",
+            "$1.55",
+            "$115",
+            "$128/mo",
+            "$2.99",
+            "$2.99/door",
+            "$200",
+            "$29/user",
+            "$3.50/unit",
+            "$3.50\u2013$5.00",
+            "$35",
+            "$5/unit",
+            "$500",
+            "$59/user",
+            "$65",
+            "$7.85\u2013$9.35",
+            "$99/mo"
+          ]
         }
       ],
       "tracking_since": "2026-05-21",
@@ -387,7 +429,7 @@
         }
       ],
       "notes": "$199/mo minimum (per industry sources, not confirmed on page). Screening fees: $10 or 10% per applicant. Comparison chart uses '$-$$$' notation rather than exact figures for competitors.",
-      "last_checked": "2026-09-28",
+      "last_checked": "2026-10-05",
       "last_changed": null,
       "change_log": [],
       "tracking_since": "2026-05-21",
@@ -505,7 +547,7 @@
       ],
       "notes": "$50 new-member discount applies first year. Local chapter dues are separate. Broker/Owner 2026 in New Orleans (Apr 27\u201330) \u2014 registration fees not posted publicly.",
       "shame_line": "NARPM's membership pricing is fully public \u2014 but you have to start a Cvent registration flow to see Broker/Owner conference fees. C'mon.",
-      "last_checked": "2026-09-28",
+      "last_checked": "2026-10-05",
       "last_changed": null,
       "change_log": [],
       "tracking_since": "2026-05-21",
@@ -551,9 +593,17 @@
         }
       ],
       "notes": "Monthly billing is higher: Pro $8.75/user, Business+ $18/user. 50% off promo for first 3 months on new workspaces.",
-      "last_checked": "2026-09-28",
-      "last_changed": null,
-      "change_log": [],
+      "last_checked": "2026-10-05",
+      "last_changed": "2026-10-05",
+      "change_log": [
+        {
+          "date": "2026-10-05",
+          "added": [
+            "$45"
+          ],
+          "removed": []
+        }
+      ],
       "tracking_since": "2026-05-21",
       "price_history": [
         {
@@ -596,7 +646,7 @@
         }
       ],
       "notes": "Up to 20% off with annual billing. Guests are free.",
-      "last_checked": "2026-09-28",
+      "last_checked": "2026-10-05",
       "last_changed": null,
       "change_log": [],
       "tracking_since": "2026-05-21",
@@ -641,8 +691,8 @@
         }
       ],
       "notes": "Business tiers capped at 300 users. 16% discount with annual commitment. Storage: 30 GB / 2 TB / 5 TB pooled.",
-      "last_checked": "2026-09-28",
-      "last_changed": "2026-09-28",
+      "last_checked": "2026-10-05",
+      "last_changed": "2026-10-05",
       "change_log": [
         {
           "date": "2026-05-25",
@@ -795,6 +845,16 @@
             "$15.40",
             "$9.80"
           ]
+        },
+        {
+          "date": "2026-10-05",
+          "added": [
+            "$15.40"
+          ],
+          "removed": [
+            "$11",
+            "$11.00"
+          ]
         }
       ],
       "tracking_since": "2026-05-21",
@@ -847,7 +907,7 @@
         }
       ],
       "notes": "Surprisingly transparent for a high-touch PM consulting firm.",
-      "last_checked": "2026-09-28",
+      "last_checked": "2026-10-05",
       "last_changed": null,
       "change_log": [],
       "tracking_since": "2026-05-21",
@@ -951,7 +1011,7 @@
         }
       ],
       "notes": "All marketed as '$3/unit'. 300+ units triggers custom quote. Promotional pricing occasionally shown (30% off + zero onboarding fee).",
-      "last_checked": "2026-09-28",
+      "last_checked": "2026-10-05",
       "last_changed": null,
       "change_log": [],
       "tracking_since": "2026-05-21",
@@ -1023,7 +1083,7 @@
         }
       ],
       "notes": "Multi-family minimum ~2,000 doors for the 70\u00a2/door tier. MojoBox lockbox $64 one-time + $3.50/mo. Live Answer add-on from $11/week/listing.",
-      "last_checked": "2026-09-28",
+      "last_checked": "2026-10-05",
       "last_changed": null,
       "change_log": [],
       "tracking_since": "2026-05-21",
@@ -1066,7 +1126,7 @@
         }
       ],
       "notes": "$19 one-time carrier registration. Lockboxes/locks fully priced (SerosBox $59+$3.50/mo, SentriLock $175+$5/mo). Messaging add-on $25/mo for 500 + 3\u00a2 after.",
-      "last_checked": "2026-09-28",
+      "last_checked": "2026-10-05",
       "last_changed": "2026-07-20",
       "change_log": [
         {
@@ -1236,8 +1296,8 @@
         }
       ],
       "notes": "First month free. Gusto payroll integration separate ($80\u2013$260+/mo).",
-      "last_checked": "2026-09-28",
-      "last_changed": "2026-08-17",
+      "last_checked": "2026-10-05",
+      "last_changed": "2026-10-05",
       "change_log": [
         {
           "date": "2026-06-22",
@@ -1295,6 +1355,24 @@
             "$6"
           ],
           "removed": []
+        },
+        {
+          "date": "2026-10-05",
+          "added": [
+            "$11",
+            "$19",
+            "$27",
+            "$5.00",
+            "$59",
+            "$97"
+          ],
+          "removed": [
+            "$2",
+            "$25",
+            "$55",
+            "$9",
+            "$90"
+          ]
         }
       ],
       "tracking_since": "2026-05-21",
@@ -1383,7 +1461,7 @@
         }
       ],
       "notes": "Two pricing axes: site build + monthly support. Custom page add-on $795/page. Rentvine clients get steep monthly discount.",
-      "last_checked": "2026-09-28",
+      "last_checked": "2026-10-05",
       "last_changed": "2026-08-03",
       "change_log": [
         {
@@ -1484,7 +1562,7 @@
         }
       ],
       "notes": "Per-lead minimum bids vary by property type, unit count, and square footage. No monthly fees, no contracts. PMs can bid above the minimum for priority placement.",
-      "last_checked": "2026-09-28",
+      "last_checked": "2026-10-05",
       "last_changed": null,
       "change_log": [],
       "tracking_since": "2026-05-21",
@@ -1522,7 +1600,7 @@
       ],
       "notes": "No tiered pricing. Pay-per-usage. PMs set application fees and rent-reporting pricing at the property level. Exact at-cost numbers not posted publicly.",
       "shame_line": "Pricing model is transparent (pay-per-use, no minimums) \u2014 exact dollar amounts behind the model are not.",
-      "last_checked": "2026-09-28",
+      "last_checked": "2026-10-05",
       "last_changed": null,
       "change_log": [],
       "tracking_since": "2026-05-21",
@@ -1555,7 +1633,7 @@
       ],
       "notes": "Price ($1.49/mo) shown as an image on a Wix subdomain \u2014 but the page never says whether that's per property, per unit, per call, or a flat fee. Confirm the unit basis before signing.",
       "shame_line": "Pricing is visible \u2014 but as an image on a Wix subdomain, with no unit clarification. Better than nothing, worse than transparent.",
-      "last_checked": "2026-09-28",
+      "last_checked": "2026-10-05",
       "last_changed": null,
       "change_log": [],
       "tracking_since": "2026-05-21",
